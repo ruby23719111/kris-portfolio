@@ -1,0 +1,38 @@
+export const projects = [
+  {
+    slug: "safemind",
+    title: "SafeMind – OHS Incident Reporting",
+    oneLiner: "GenAI-powered incident reporting prototype that reduces friction in safety reporting.",
+    role: "UX + Front-end",
+    tech: ["Next.js", "React", "JavaScript", "GenAI"],
+    links: { live: "", github: "", youtube: "https://youtu.be/t3-JGh9h8hE", figma: "" },
+    featured: true,
+  },
+  {
+    slug: "portfolio-website",
+    title: "Personal Portfolio Website",
+    oneLiner: "A Next.js portfolio platform designed to showcase projects and UX work clearly.",
+    role: "Front-end Developer",
+    tech: ["Next.js", "React", "JavaScript", "CSS", "Vercel"],
+    links: { live: "", github: "", youtube: "", figma: "" },
+    featured: true,
+  },
+  {
+    slug: "mcp-exploration",
+    title: "MCP Technical Exploration",
+    oneLiner: "A tooling experiment exploring Model Context Protocol and context-driven assistants.",
+    role: "Developer / System Design",
+    tech: ["MCP", "Node.js", "Tooling", "LLM", "APIs"],
+    links: { live: "", github: "", youtube: "", figma: "", article: "https://www.linkedin.com/posts/kris-hsu_mcp-buildclub-aiagents-activity-7404535037032976384-GzKi?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD36-6IB56mxIoEfQICxIGj8uoqO8cpBNk4" },
+    featured: true,
+  },
+  {
+    slug: "vcinity",
+    title: "VCINITY – Student Community App (UX Prototype)",
+    oneLiner: "A clickable UX prototype exploring onboarding and community engagement flows.",
+    role: "UX / Interaction Design",
+    tech: ["Figma", "Prototyping", "User Flow", "Interaction Design"],
+    links: { live: "", github: "", youtube: "", figma: "https://www.figma.com/proto/hws7cRIrB4JcINTl1v33he/IFN637_A3_Prototype_ChiaChi-Hsu_n12286443?node-id=6007-406&starting-point-node-id=6007%3A406&t=7FbZCNOaQhFqpHp7-1" },
+    featured: true,
+  },
+];
