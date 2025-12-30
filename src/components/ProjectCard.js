@@ -9,7 +9,7 @@ const linkStyle = {
 };
 
 export default function ProjectCard({ project }) {
-  const { title, oneLiner, role, tech, links } = project;
+  const { title, oneLiner, role, tech, links, image } = project;
 
   return (
     <article
@@ -18,15 +18,36 @@ export default function ProjectCard({ project }) {
         borderRadius: 16,
         padding: 18,
         background: "white",
+        display: "flex",
+        flexDirection: "column",
       }}
     >
+      {/* ✅ Preview Image */}
+      {image && (
+        <img
+          src={image}
+          alt={`${title} preview`}
+          style={{
+            width: "100%",
+            height: 160,
+            objectFit: "cover",
+            borderRadius: 12,
+            marginBottom: 14,
+            background: "#f5f5f5",
+          }}
+        />
+      )}
+
       <h3 style={{ margin: 0, fontSize: 20 }}>{title}</h3>
-      <p style={{ marginTop: 8, lineHeight: 1.6, opacity: 0.9 }}>{oneLiner}</p>
+      <p style={{ marginTop: 8, lineHeight: 1.6, opacity: 0.9 }}>
+        {oneLiner}
+      </p>
 
       <p style={{ marginTop: 10, marginBottom: 0, fontSize: 14, opacity: 0.85 }}>
         <strong>Role:</strong> {role}
       </p>
 
+      {/* Tech tags */}
       <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: 12 }}>
         {tech.map((t) => (
           <span
@@ -44,25 +65,16 @@ export default function ProjectCard({ project }) {
         ))}
       </div>
 
+      {/* Links */}
       <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginTop: 14 }}>
         {links.live && (
-          <a
-            href={links.live}
-            target="_blank"
-            rel="noreferrer"
-            style={linkStyle}
-          >
+          <a href={links.live} target="_blank" rel="noreferrer" style={linkStyle}>
             Live Demo
           </a>
         )}
 
         {links.github && (
-          <a
-            href={links.github}
-            target="_blank"
-            rel="noreferrer"
-            style={linkStyle}
-          >
+          <a href={links.github} target="_blank" rel="noreferrer" style={linkStyle}>
             GitHub
           </a>
         )}
@@ -74,17 +86,12 @@ export default function ProjectCard({ project }) {
             rel="noreferrer"
             style={linkStyle}
           >
-            YouTube
+            Watch Walkthrough
           </a>
         )}
 
         {links.figma && (
-          <a
-            href={links.figma}
-            target="_blank"
-            rel="noreferrer"
-            style={linkStyle}
-          >
+          <a href={links.figma} target="_blank" rel="noreferrer" style={linkStyle}>
             Figma
           </a>
         )}
@@ -96,7 +103,7 @@ export default function ProjectCard({ project }) {
             rel="noreferrer"
             style={linkStyle}
           >
-            Linkedin Post
+            LinkedIn Post
           </a>
         )}
       </div>
