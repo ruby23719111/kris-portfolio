@@ -14,7 +14,7 @@ export const projects = [
     oneLiner: "A Next.js portfolio platform designed to showcase projects and UX work clearly.",
     role: "Front-end Developer",
     tech: ["Next.js", "React", "JavaScript", "CSS", "Vercel"],
-    links: { live: "", github: "", youtube: "", figma: "" },
+    links: { live: "https://krishsu.vercel.app", github: "", youtube: "", figma: "" },
     featured: true,
   },
   {
