@@ -31,6 +31,7 @@ export default function ProjectCard({ project }) {
   };
 
   const stop = (e) => e.stopPropagation();
+  console.log(title, primaryLink, links);
 
   return (
     <article
