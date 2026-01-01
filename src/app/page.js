@@ -12,8 +12,7 @@ export default function Home() {
           </h1>
 
           <p style={{ margin: "14px 0 0", fontSize: 18, lineHeight: 1.7, maxWidth: 720, opacity: 0.85 }}>
-            I design and build clear, user-friendly interfaces — from clickable prototypes to working Next.js apps.
-            Currently studying Master of IT at QUT and building projects in UX/HCD, web, and security.
+            I design and build user-friendly web applications, focusing on front-end development shaped by strong UX thinking, while exploring GenAI prototypes and security-aware systems.
           </p>
 
           {/* CTA buttons */}
@@ -64,8 +63,8 @@ export default function Home() {
             }}
           >
             {[
-              { title: "SafeMind", desc: "GenAI-powered OHS incident reporting prototype." },
-              { title: "VCINITY", desc: "UX prototype exploring onboarding & engagement flows." },
+              { title: "SafeMind", desc: "GenAI-powered OHS incident reporting prototype. TANDA GenAI Hackathon — Most Viable Award" },
+              { title: "VCINITY", desc: "A UX-driven web prototype focused on onboarding flows and meaningful user engagement." },
               { title: "MCP Exploration", desc: "Tooling experiment with MCP and context-driven assistants." },
             ].map((item) => (
               <div

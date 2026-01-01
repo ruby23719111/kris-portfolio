@@ -6,8 +6,7 @@ export default function ProjectsPage() {
     <main style={{ maxWidth: 960, margin: "0 auto", padding: "56px 20px" }}>
       <h1 style={{ fontSize: 36, margin: 0 }}>Projects</h1>
       <p style={{ marginTop: 12, lineHeight: 1.7, maxWidth: 720 }}>
-        A curated selection of projects showcasing my work in React/Next.js and UX/UI. Each project includes links to demos,
-        prototypes, and walkthroughs.
+        Click any project card to view the live demo, prototype, or walkthrough.
       </p>
 
       <div
