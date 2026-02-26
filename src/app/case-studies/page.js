@@ -1,9 +1,9 @@
-export default function CaseStudiesPage() {
+export default function CaseStudies() {
   return (
-    <main style={{ maxWidth: 960, margin: "0 auto", padding: "56px 20px", fontFamily: "system-ui" }}>
-      <h1 style={{ fontSize: 36, margin: 0 }}>UX Case Studies</h1>
-      <p style={{ marginTop: 12, lineHeight: 1.7 }}>
-        Selected UX/UI work with problem → process → outcomes.
+    <main style={{ padding: "80px 20px", textAlign: "center" }}>
+      <h1>Case Studies</h1>
+      <p style={{ opacity: 0.7, marginTop: 12 }}>
+        Under construction 🚧
       </p>
     </main>
   );

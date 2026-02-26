@@ -1,42 +1,48 @@
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* =========================
+   Mondrian background system
+   ========================= */
+
+.mondrian-bg {
+  position: relative;
+  min-height: 100vh;
+  background: #ffffff;
+
+  /* 防止色塊溢出造成水平卷軸 */
+  overflow: hidden;
+
+  /* 額外保險：避免任何元素推到 x 軸 */
+  width: 100%;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* 所有色塊都用這個 */
+.mondrian-block {
+  position: absolute;
+
+  /* 永遠在內容後面 */
+  z-index: 0;
+
+  /* 更像參考圖：柔和一點的圓角 + 輕微透明 */
+  border-radius: 18px;
+  opacity: 0.95;
+
+  /* 防止色塊擋到點擊（很重要，不然你以為按到 link，其實按到色塊） */
+  pointer-events: none;
+}
+/* 顏色 */
+.mondrian-red {
+  background: #e53935;
 }
 
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
+.mondrian-blue {
+  background: #1e5bd7;
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.mondrian-yellow {
+  background: #f7c52b;
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+/* 內容層一定要比色塊高 */
+.mondrian-content {
+  position: relative;
+  z-index: 2;
 }

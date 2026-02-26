@@ -44,10 +44,7 @@ export default function RootLayout({ children }) {
             <nav style={{ display: "flex", gap: 6, alignItems: "center" }}>
               <Link href="/projects" style={navLinkStyle}>
                 Projects
-              </Link>
-              <Link href="/case-studies" style={navLinkStyle}>
-                Case Studies
-              </Link>
+              </Link>            
               <Link href="/about" style={navLinkStyle}>
                 About
               </Link>

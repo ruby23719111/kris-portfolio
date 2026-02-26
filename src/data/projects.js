@@ -35,4 +35,13 @@ export const projects = [
     links: { live: "", github: "", youtube: "", figma: "https://www.figma.com/proto/hws7cRIrB4JcINTl1v33he/IFN637_A3_Prototype_ChiaChi-Hsu_n12286443?node-id=6007-406&starting-point-node-id=6007%3A406&t=7FbZCNOaQhFqpHp7-1" },
     featured: true,
   },
+  {
+    slug: "ThaimeUp — Thai Food Ordering Web App",
+    title: "ThaimeUp — Thai Food Ordering Web App",
+    oneLiner: "Full-stack Thai food ordering web app built with Flask + MySQL. Customers browse menu & manage basket; admins manage items, categories, and orders.",
+    role: "Full-stack Developer",
+    tech: ["Flask", "Python", "MySQL", "Bootstrap", "HTML/CSS"], image: "/projects/thaimeup.png", primaryLink: "https://github.com/ruby23719111/thaimeup.git",
+    links: { live: "", github: "", youtube: "", figma: "" },
+    featured: true,
+  },
 ];

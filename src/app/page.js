@@ -1,17 +1,75 @@
 export default function Home() {
-    return (
-      <main style={{ maxWidth: 980, margin: "0 auto", padding: "48px 20px" }}>
+  return (
+    <div className="mondrian-bg">
+      {/* Background blocks (ONLY ONE SET) */}
+      <div
+        className="mondrian-block mondrian-red"
+        style={{
+          top: 90,
+          left: -120,
+          width: 420,
+          height: 240,
+          borderRadius: 22,
+        }}
+      />
+
+      <div
+        className="mondrian-block mondrian-blue"
+        style={{
+          top: 160,
+          right: -140,
+          width: 520,
+          height: 300,
+          borderRadius: 22,
+        }}
+      />
+
+      <div
+        className="mondrian-block mondrian-yellow"
+        style={{
+          bottom: -120,
+          left: 80,
+          width: 340,
+          height: 340,
+          borderRadius: 26,
+        }}
+      />
+
+      {/* Content */}
+      <main
+        className="mondrian-content"
+        style={{
+          maxWidth: 980,
+          margin: "0 auto",
+          padding: "48px 20px",
+        }}
+      >
         {/* Hero */}
         <section style={{ padding: "18px 0 34px" }}>
           <p style={{ margin: 0, fontSize: 14, opacity: 0.7 }}>
             Hi, I’m Kris Hsu
           </p>
 
-          <h1 style={{ margin: "10px 0 10px", fontSize: 44, lineHeight: 1.1 }}>
+          <h1
+            style={{
+              margin: "12px 0",
+              fontSize: 46,
+              lineHeight: 1.1,
+              maxWidth: 720,
+            }}
+          >
             UX + Front-end builder with a systems & security mindset.
           </h1>
 
-          <p style={{ margin: "14px 0 0", fontSize: 18, lineHeight: 1.7, maxWidth: 720, opacity: 0.85 }}>
+          <p
+            style={{
+              margin: "14px 0 0",
+              fontSize: 18,
+              lineHeight: 1.7,
+              maxWidth: 720,
+              opacity: 0.85,
+            }}
+          >
             I design and build user-friendly web applications, focusing on front-end development shaped by strong UX thinking, while exploring GenAI prototypes and security-aware systems.
           </p>
 
@@ -53,7 +111,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Optional quick highlights (simple + clean) */}
+        {/* Highlights */}
         <section style={{ marginTop: 18 }}>
           <div
             style={{
@@ -63,9 +121,18 @@ export default function Home() {
             }}
           >
             {[
-              { title: "SafeMind", desc: "GenAI-powered OHS incident reporting prototype. TANDA GenAI Hackathon — Most Viable Award" },
-              { title: "VCINITY", desc: "A UX-driven web prototype focused on onboarding flows and meaningful user engagement." },
-              { title: "MCP Exploration", desc: "Tooling experiment with MCP and context-driven assistants." },
+              {
+                title: "SafeMind",
+                desc: "GenAI-powered OHS incident reporting prototype. TANDA GenAI Hackathon — Most Viable Award",
+              },
+              {
+                title: "VCINITY",
+                desc: "A UX-driven web prototype focused on onboarding flows and meaningful user engagement.",
+              },
+              {
+                title: "MCP Exploration",
+                desc: "Tooling experiment with MCP and context-driven assistants.",
+              },
             ].map((item) => (
               <div
                 key={item.title}
@@ -85,5 +152,6 @@ export default function Home() {
           </div>
         </section>
       </main>
-    );
-  }
+    </div>
+  );
+}
