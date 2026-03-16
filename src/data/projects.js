@@ -9,12 +9,12 @@ export const projects = [
     featured: true,
   },
   {
-    slug: "portfolio-website",
+    slug: "portfolio",
     title: "Personal Portfolio Website",
-    oneLiner: "A Next.js portfolio platform designed to showcase projects and UX work clearly.",
-    role: "Front-end Developer",
-    tech: ["Next.js", "React", "JavaScript", "CSS", "Vercel"],  image: "/projects/portfolio.png", primaryLink:  "https://krishsu.vercel.app",
-    links: { live: "https://krishsu.vercel.app", github: "", youtube: "", figma: "" },
+    oneLiner: "A personal portfolio website designed to showcase selected projects, UX work, and ongoing development.",
+    role: "UX/UI Design + Front-end Development",
+    tech: ["Next.js", "React", "JavaScript", "CSS", "Github"],  image: "/projects/portfolio.png", primaryLink:  "https://krishsu.vercel.apphttps://ruby23719111.github.io/kris-portfolio-static/",
+    links: { live: "https://ruby23719111.github.io/kris-portfolio-static/", github: "", youtube: "", figma: "" },
     featured: true,
   },
   {
