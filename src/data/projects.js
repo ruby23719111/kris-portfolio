@@ -13,7 +13,7 @@ export const projects = [
     title: "Personal Portfolio Website",
     oneLiner: "A personal portfolio website designed to showcase selected projects, UX work, and ongoing development.",
     role: "UX/UI Design + Front-end Development",
-    tech: ["Next.js", "React", "JavaScript", "CSS", "Github"],  image: "/projects/portfolio.png", primaryLink:  "https://ruby23719111.github.io/kris-portfolio-static/",
+    tech: ["HTML", "CSS", "Github"],  image: "/projects/portfolio.png", primaryLink:  "https://ruby23719111.github.io/kris-portfolio-static/",
     links: { live: "", github: "", youtube: "", figma: "" },
     featured: true,
   },
