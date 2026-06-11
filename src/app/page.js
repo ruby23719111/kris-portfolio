@@ -65,8 +65,9 @@ export default function Home() {
               letterSpacing: "-0.02em",
             }}
           >
-            UX-driven builder exploring product, front-end, and intelligent
-            systems.
+            Bridging technology, people and business.
+
+            Building digital products across AI, cloud, mobile and user experience.
           </h1>
 
           <p
@@ -78,8 +79,9 @@ export default function Home() {
               opacity: 0.85,
             }}
           >
-            Designing and building interactive products across UX, code, and
-            system thinking.
+            Final-year Master of IT student at QUT.
+
+            Interested in Product, Solutions Consulting, Cloud and AI.
           </p>
 
           {/* CTA button */}
