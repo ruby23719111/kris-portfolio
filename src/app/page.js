@@ -65,11 +65,7 @@ export default function Home() {
               letterSpacing: "-0.02em",
             }}
           >
-            Bridging technology, people and business.
-
-            Building digital products across AI, cloud, mobile and user experience.
-          </h1>
-
+           Bridging user needs and technology solutions.
           <p
             style={{
               margin: "18px 0 0",
@@ -79,10 +75,7 @@ export default function Home() {
               opacity: 0.85,
             }}
           >
-            Final-year Master of IT student at QUT.
-
-            Interested in Product, Solutions Consulting, Cloud and AI.
-          </p>
+           Final-year Master of IT student at QUT, building products that connect technology, people and business needs.
 
           {/* CTA button */}
           <div
