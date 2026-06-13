@@ -1,6 +1,7 @@
 export const projects = [
   {
     slug: "safemind",
+    category: "Hackathon",
     title: "SafeMind – OHS Incident Reporting",
     oneLiner: "GenAI-powered incident reporting prototype that reduces friction in safety reporting.",
     role: "UX + Front-end",
@@ -10,6 +11,7 @@ export const projects = [
   },
   {
     slug: "portfolio",
+    category: "Personal",
     title: "Personal Portfolio Website",
     oneLiner: "A personal portfolio website designed to showcase selected projects, UX work, and ongoing development.",
     role: "UX/UI Design + Front-end Development",
@@ -19,6 +21,7 @@ export const projects = [
   },
   {
     slug: "mcp-exploration",
+    category: "Personal",
     title: "MCP Technical Exploration",
     oneLiner: "A tooling experiment exploring Model Context Protocol and context-driven assistants.",
     role: "Developer / System Design",
@@ -28,6 +31,7 @@ export const projects = [
   },
   {
     slug: "vcinity",
+    category: "Academic",
     title: "VCINITY – Student Community App (UX Prototype)",
     oneLiner: "A clickable UX prototype exploring onboarding and community engagement flows.",
     role: "UX / Interaction Design",
@@ -37,6 +41,7 @@ export const projects = [
   },
   {
     slug: "ThaimeUp — Thai Food Ordering Web App",
+    category: "Academic",
     title: "ThaimeUp — Thai Food Ordering Web App",
     oneLiner: "Full-stack Thai food ordering web app built with Flask + MySQL. Customers browse menu & manage basket; admins manage items, categories, and orders.",
     role: "Full-stack Developer",

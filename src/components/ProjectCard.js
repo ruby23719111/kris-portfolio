@@ -33,7 +33,6 @@ export default function ProjectCard({ project }) {
         display: "flex",
         flexDirection: "column",
         cursor: primaryLink ? "pointer" : "default",
-
         transform: hovered && primaryLink ? "translateY(-6px)" : "translateY(0)",
         boxShadow:
           hovered && primaryLink
@@ -45,10 +44,15 @@ export default function ProjectCard({ project }) {
       {image && (
         <div
           style={{
+            width: "100%",
+            aspectRatio: "16 / 9",
             overflow: "hidden",
             borderRadius: 12,
             marginBottom: 14,
             background: "#f5f5f5",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
           }}
         >
           <img
@@ -56,8 +60,8 @@ export default function ProjectCard({ project }) {
             alt={`${title} preview`}
             style={{
               width: "100%",
-              height: 160,
-              objectFit: "cover",
+              height: "100%",
+              objectFit: "contain",
               transform: hovered && primaryLink ? "scale(1.03)" : "scale(1)",
               transition: "transform 0.3s ease",
               display: "block",
