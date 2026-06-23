@@ -28,7 +28,7 @@ export default function ProjectsPage() {
           flexWrap: "wrap",
         }}
       >
-        {["All", "Academic", "Personal", "Hackathon"].map((category) => (
+        {["All","Industry", "Hackathon", "Academic", "Personal"].map((category) => (
           <button
             key={category}
             onClick={() => setSelectedCategory(category)}

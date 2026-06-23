@@ -1,5 +1,62 @@
 export const projects = [
   {
+    slug: "junior-ranger",
+    category: "Industry",
+    title: "Junior Ranger – AI-Powered Wildlife Learning App",
+    oneLiner:
+      "Developed an AI-powered learning app that helps Indigenous children explore local wildlife while building English vocabulary and digital literacy through engaging game-based experiences.",
+    role: "Team Leader + Mobile App Development",
+    tech: [
+      "Swift",
+      "Google Vision API",
+      "iNaturalist API",
+      "AI Integration",
+      "Team Leadership"
+    ],
+    primaryLink: "https://youtube.com/shorts/4QIalMF5-Is?feature=share",
+    links: {
+      live: "",
+      github: "",
+      youtube: "",
+      figma: ""
+    },
+    image: "/projects/junior-ranger.png",
+    featured: true,
+  },
+  {
+    slug: "food-buddy",
+    category: "Academic",
+    title: "QUT Food Buddy - Social Meal Planning App",
+    oneLiner: "Designed a mobile platform that helps university students find meal companions based on shared interests and availability, reducing social isolation and encouraging new friendships on campus.",
+    role: "Mobile App Developer + UX/UI Design",
+    tech: ["React Native", "Expo", "JavaScript", "REST API", "Authentication"],
+    primaryLink: "https://youtu.be/hNPBbQBeToY",
+    links: { live: "", github: "", youtube: "https://youtu.be/hNPBbQBeToY", figma: "" },
+    image: "/projects/foodbuddy.png",
+    featured: true,
+  },
+   {
+    slug: "heyjarvis",
+    category: "Hackathon",
+    title: "Hey Jarvis! – AI Companion for International Students",
+    oneLiner:
+      "Developed a voice-enabled AI assistant that helps international students adapt to life in Australia through schedule management, local guidance, and social matching features.",
+    role: "Product Designer + UX/UI Design",
+    tech: [
+      "AI Agent", "OpenAI", "Conversational AI", "Hackathon"],
+    primaryLink:
+      "https://www.linkedin.com/posts/kris-hsu_hackathon-artificialintelligence-conversationalai-ugcPost-7449073004086587392-cyLr/",
+
+    links: {
+      live: "",
+      github: "",
+      youtube: "",
+      figma: ""
+    },
+    image: "/projects/jarvis.png",
+    featured: true,
+  },
+  {
     slug: "safemind",
     category: "Hackathon",
     title: "SafeMind - OHS Incident Reporting",
@@ -40,7 +97,7 @@ export const projects = [
     featured: true,
   },
   {
-    slug: "ThaimeUp - Thai Food Ordering Web App",
+    slug: "ThaimeUp",
     category: "Academic",
     title: "ThaimeUp - Thai Food Ordering Web App",
     oneLiner: "Designed a restaurant-owned ordering platform that reduces reliance on third-party delivery services and lowers commission costs for small businesses.",
@@ -49,16 +106,4 @@ export const projects = [
     links: { live: "", github: "", youtube: "", figma: "" },
     featured: true,
   },
-  {
-  slug: "food-buddy",
-  category: "Academic",
-  title: "QUT Food Buddy - Social Meal Planning App",
-  oneLiner: "Designed a mobile platform that helps university students find meal companions based on shared interests and availability, reducing social isolation and encouraging new friendships on campus.",
-  role: "Mobile App Developer + UX/UI Design",
-  tech: ["React Native", "Expo", "JavaScript", "REST API", "Authentication"],
-  primaryLink: "https://youtu.be/hNPBbQBeToY",
-  links: { live: "", github: "", youtube: "https://youtu.be/hNPBbQBeToY", figma: "" },
-  image: "/projects/foodbuddy.png",
-  featured: true,
-  }
 ];
