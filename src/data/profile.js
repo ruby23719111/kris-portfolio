@@ -106,10 +106,10 @@ export const journey = {
 
 export const education = [
   {
-    institution: "National Chung Hsing University",
-    qualification: "Bachelor of Laws",
-    period: "2014–2018",
-    detail: "Taiwan",
+    institution: "Queensland University of Technology",
+    qualification: "Master of Information Technology",
+    period: "2025–2026",
+    detail: "Australia · Final year",
   },
   {
     institution: "Karlsruhe University of Applied Sciences",
@@ -124,10 +124,10 @@ export const education = [
     detail: "Mexico · A study period within my international education",
   },
   {
-    institution: "Queensland University of Technology",
-    qualification: "Master of Information Technology",
-    period: "2025–2026",
-    detail: "Australia · Final year",
+    institution: "National Chung Hsing University",
+    qualification: "Bachelor of Laws",
+    period: "2014–2018",
+    detail: "Taiwan",
   },
 ];
 
