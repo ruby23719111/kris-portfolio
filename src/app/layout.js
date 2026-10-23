@@ -1,86 +1,46 @@
-import Link from "next/link";
+import { Geist } from "next/font/google";
+import Header from "@/components/Header";
+import Contact from "@/components/Contact";
+import { site } from "@/data/site";
 import "./globals.css";
-
+const geist = Geist({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-geist",
+});
 export const metadata = {
-  title: "Kris Hsu | Portfolio",
-  description: "Portfolio of Kris Hsu — React, Next.js, JavaScript, UX/UI.",
+  metadataBase: new URL(site.url),
+  title: {
+    default: "Kris Hsu — Graduate Software Developer Portfolio",
+    template: "%s | Kris Hsu",
+  },
+  description:
+    "QUT Master of IT student seeking graduate and junior software roles in Australia. Explore mobile apps, web development and product design through real project cases.",
+  openGraph: {
+    title: "Kris Hsu — Software, made for people.",
+    description:
+      "Web, mobile and product work by a final-year QUT Master of IT student.",
+    url: site.url,
+    siteName: "Kris Hsu",
+    locale: "en_AU",
+    type: "website",
+  },
+  twitter: { card: "summary_large_image" },
 };
-
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body style={{ margin: 0, fontFamily: "system-ui" }}>
-        <header
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1fr auto 1fr",
-            alignItems: "center",
-            padding: "20px 40px",
-          }}
-        >
-          <div />
-
-          <Link
-            href="/"
-            className="brand-name"
-            style={{
-              textDecoration: "none",
-              color: "inherit",
-              justifySelf: "center",
-            }}
-          >
-            Kris Hsu
-          </Link>
-
-          <div
-            style={{
-              display: "flex",
-              gap: 16,
-              alignItems: "center",
-              justifySelf: "end",
-            }}
-          >
-            <a
-              href="https://github.com/ruby23719111"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="GitHub"
-              className="nav-icon-link"
-            >
-              <img src="/github.svg" alt="GitHub" className="nav-icon" />
-            </a>
-
-            <a
-              href="https://www.linkedin.com/in/kris-hsu"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn"
-              className="nav-icon-link"
-            >
-              <img src="/linkedin.svg" alt="LinkedIn" className="nav-icon" />
-            </a>
-          </div>
-        </header>
-
-        <div>{children}</div>
-
-        <footer
-          style={{
-            borderTop: "1px solid rgba(0,0,0,0.08)",
-            marginTop: 48,
-          }}
-        >
-          <div
-            style={{
-              maxWidth: 960,
-              margin: "0 auto",
-              padding: "18px 20px",
-              fontSize: 14,
-              opacity: 0.8,
-            }}
-          >
-            © {new Date().getFullYear()} Kris Hsu
-          </div>
+    <html lang="en-AU" className={geist.variable}>
+      <body>
+        <a href="#main" className="skip-link">
+          Skip to content
+        </a>
+        <Header />
+        {children}
+        <Contact />
+        <footer className="site-footer shell">
+          <span>© {new Date().getFullYear()} Kris Hsu</span>
+          <span>Thoughtfully designed. Always learning.</span>
+          <a href="#main">Back to top ↑</a>
         </footer>
       </body>
     </html>

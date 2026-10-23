@@ -1,0 +1,22 @@
+# Content evidence and publication boundaries
+
+Reviewed 2026-10-23. Scope: the existing eight projects only.
+
+| Project       | Evidence used                                                                                                | Personal contribution                                 | Boundaries / missing material                                                                                                                  |
+| ------------- | ------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| Junior Ranger | Original project data and three original screens in public/projects/junior-ranger.png; existing YouTube link | Published team leadership and mobile development role | No individual API ownership, recognition accuracy, learning outcomes or public-launch claim. The screenshots document the displayed prototype. |
+| Food Buddy    | Original project data; three original screens in foodbuddy.png; existing YouTube link                        | Published mobile development and UX/UI role           | API/authentication is project context; backend ownership and adoption not verified. In-app name is QUT Meal Buddy.                             |
+| Hey Jarvis    | Original jarvis.png and LinkedIn link; Kris explicitly confirmed product planning and UX/UI in this chat     | Product planning and UX/UI only                       | Team interface, not evidence of Kris implementing AI/backend. Only one original screen; no invented states.                                    |
+| ThaimeUp      | Original data, screenshot and public repository README                                                       | Full-stack role                                       | Coursework simulation; no commercial savings.                                                                                                  |
+| SafeMind      | Original data, screenshot, YouTube link                                                                      | UX and front-end                                      | No measured reporting improvements or award added.                                                                                             |
+| MCP           | Original data, screenshot, LinkedIn post link                                                                | Developer/system design role                          | No complete public tool-schema or permissions audit.                                                                                           |
+| VCINITY       | Original data, screenshot, existing Figma prototype                                                          | UX/interaction design                                 | Prototype, not shipped app or proven participation increase.                                                                                   |
+| Portfolio     | This implementation and original previous-site screenshot                                                    | Content/design and AI-assisted implementation         | Technical checks recorded separately; no hiring outcome claimed.                                                                               |
+
+The account owner confirmed public email `kriscchsu@gmail.com`. Résumé is pending the Neil-reviewed version promised by Kris. `src/data/site.js` deliberately uses a working email request until that exact file is supplied. Other locally found résumés are not published.
+
+Unconfirmed graduation month, start date, work rights, team sizes and metrics are omitted. Technical project prose describes observable interaction decisions, without inventing a research process or claiming personal ownership of every module.
+
+The six portrait gallery files are deterministic extracts of existing composite screenshots. No product state or UI was generated. Original PNGs remain in the repository for provenance. WebP copies are delivery assets.
+
+Live source: GitHub main e669870e39f5a825a1d0314b0176c06b73af69be; GitHub Production deployment 5165324512 is successful. Its immutable Vercel URL is protected, so matching the custom domain requires the owner account or deployment control-plane access before production promotion.

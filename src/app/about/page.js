@@ -1,10 +1,4 @@
-export default function AboutPage() {
-  return (
-    <main style={{ maxWidth: 960, margin: "0 auto", padding: "56px 20px", fontFamily: "system-ui" }}>
-      <h1 style={{ fontSize: 36, margin: 0 }}>About</h1>
-      <p style={{ marginTop: 12, lineHeight: 1.7 }}>
-        Under construction 🚧
-      </p>
-    </main>
-  );
+import { permanentRedirect } from "next/navigation";
+export default function About() {
+  permanentRedirect("/#about");
 }

@@ -1,63 +1,29 @@
-"use client";
-
-import { useState } from "react";
-import ProjectCard from "@/components/ProjectCard";
 import { projects } from "@/data/projects";
-
-export default function ProjectsPage() {
-  const [selectedCategory, setSelectedCategory] = useState("All");
-
-  const filteredProjects =
-    selectedCategory === "All"
-      ? projects
-      : projects.filter((p) => p.category === selectedCategory);
-
+import ProjectCard from "@/components/ProjectCard";
+export const metadata = {
+  title: "Projects",
+  description:
+    "Eight projects across mobile development, full-stack web applications, AI tools and UX design. See the product, my contribution and the evidence.",
+  alternates: { canonical: "/projects" },
+};
+export default function Projects() {
   return (
-    <main style={{ maxWidth: 1200, margin: "0 auto", padding: "56px 20px" }}>
-      <h1 style={{ fontSize: 36, margin: 0 }}>Projects</h1>
-
-      <p style={{ marginTop: 12, lineHeight: 1.7, maxWidth: 720 }}>
-        Click any project card to view the live demo, prototype, or walkthrough.
-      </p>
-
-      <div
-        style={{
-          display: "flex",
-          gap: 12,
-          marginTop: 24,
-          flexWrap: "wrap",
-        }}
-      >
-        {["All","Industry", "Hackathon", "Academic", "Personal"].map((category) => (
-          <button
-            key={category}
-            onClick={() => setSelectedCategory(category)}
-            style={{
-              padding: "8px 16px",
-              borderRadius: 999,
-              border: "1px solid #ddd",
-              cursor: "pointer",
-              background: selectedCategory === category ? "#111" : "white",
-              color: selectedCategory === category ? "white" : "black",
-              fontSize: 14,
-            }}
-          >
-            {category}
-          </button>
-        ))}
-      </div>
-
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(320px, 320px))",
-          gap: 16,
-          marginTop: 24,
-          justifyContent: "start",
-        }}
-      >
-        {filteredProjects.map((p) => (
-          <ProjectCard key={p.slug} project={p} />
+    <main id="main" className="shell projects-page">
+      <header className="page-heading">
+        <span className="eyebrow">The project collection / 08</span>
+        <h1>
+          Ideas into
+          <br />
+          experiences<span className="blue">.</span>
+        </h1>
+        <p>
+          Mobile apps, web applications and product explorations.
+          <br />A closer look at what I worked on — and how I think.
+        </p>
+      </header>
+      <div className="projects-grid">
+        {projects.map((project, index) => (
+          <ProjectCard key={project.slug} project={project} index={index} />
         ))}
       </div>
     </main>
