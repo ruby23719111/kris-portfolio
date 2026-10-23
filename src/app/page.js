@@ -3,7 +3,9 @@ import Gallery from "@/components/Gallery";
 import EvidenceLinks from "@/components/EvidenceLinks";
 import Icon from "@/components/Icon";
 import ProjectDetails from "@/components/ProjectDetails";
-import ProjectCard from "@/components/ProjectCard";
+import ProjectGrid from "@/components/ProjectGrid";
+import Experience from "@/components/Experience";
+import Journey from "@/components/Journey";
 import { projects, featuredProjects } from "@/data/projects";
 import { site, resumeHref, resumeLabel } from "@/data/site";
 export const metadata = { alternates: { canonical: "/" } };
@@ -20,7 +22,7 @@ export default function Home() {
         </div>
         <div className="hero-grid">
           <div>
-            <p className="intro-label">Hi, I’m Kris.</p>
+            <p className="intro-label">Hi, I’m Kris Hsu.</p>
             <h1 id="hero-title">
               Software,
               <br />
@@ -38,7 +40,7 @@ export default function Home() {
             <p className="hero-subtext">
               Final-year Master of Information Technology student at QUT,
               seeking graduate and junior software development roles in
-              Australia.
+              Australia. Currently an AI App Developer Intern at Pixelz360.
             </p>
             <div className="hero-actions">
               <a className="button button-primary" href="#selected-work">
@@ -90,8 +92,9 @@ export default function Home() {
             id={`project-${project.slug}`}
           >
             <div className="featured-image">
+              {project.video && <span className="featured-version">Final project version · Phase 2</span>}
               <Gallery
-                images={project.gallery}
+                images={project.gallery.slice(0, 5)}
                 title={project.title}
                 tone={project.tone}
                 priority={index === 0}
@@ -102,16 +105,14 @@ export default function Home() {
               <div className="project-index">
                 0{index + 1}
                 <span>
-                  {project.category} /{" "}
-                  {project.featured && project.slug === "heyjarvis"
-                    ? "Product & UX"
-                    : "Mobile development"}
+                  {project.category}
                 </span>
               </div>
               <h3>
                 <Link href={`/projects/${project.slug}`}>{project.title}</Link>
               </h3>
               <p className="project-subtitle">{project.subtitle}</p>
+              <p className="featured-role">{project.role}</p>
               <p className="project-summary">{project.oneLiner}</p>
               <div className="contribution-block">
                 <span className="small-label">My contribution</span>
@@ -156,74 +157,10 @@ export default function Home() {
             without leaving this page.
           </p>
         </div>
-        <div className="home-projects-list">
-          {projects
-            .filter((project) => !project.featured)
-            .map((project, index) => (
-              <ProjectCard
-                key={project.slug}
-                project={project}
-                index={index + 3}
-                inline
-              />
-            ))}
-        </div>
+        <ProjectGrid projects={projects.filter((project) => !project.featured)} />
       </section>
-      <section
-        className="about-section"
-        id="about"
-        aria-labelledby="about-title"
-      >
-        <div className="shell about-grid">
-          <div>
-            <span className="eyebrow">A little about me</span>
-            <h2 id="about-title">
-              Curious about technology.
-              <br />
-              Focused on people.
-            </h2>
-          </div>
-          <div className="about-copy">
-            <p>
-              I’m Kris, a final-year Master of Information Technology student at
-              Queensland University of Technology. I enjoy turning an idea into
-              something people can see, use and give feedback on.
-            </p>
-            <p>
-              My work spans mobile and web development, interface design and
-              team projects. I’m looking for a graduate or junior role where I
-              can contribute, keep learning and build useful software with
-              others.
-            </p>
-            <div className="capability-list">
-              <Link href="#project-food-buddy">
-                <span>01</span>
-                <div>
-                  <strong>Build the experience</strong>
-                  <small>Mobile interfaces and connected user journeys</small>
-                </div>
-                <Icon name="external" />
-              </Link>
-              <Link href="#project-ThaimeUp">
-                <span>02</span>
-                <div>
-                  <strong>Connect the pieces</strong>
-                  <small>Web interfaces, application logic and data</small>
-                </div>
-                <Icon name="external" />
-              </Link>
-              <Link href="#project-heyjarvis">
-                <span>03</span>
-                <div>
-                  <strong>Start with the person</strong>
-                  <small>Product planning, interaction and UX/UI</small>
-                </div>
-                <Icon name="external" />
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Experience />
+      <Journey />
     </main>
   );
 }

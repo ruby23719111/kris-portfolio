@@ -2,11 +2,11 @@ import Link from "next/link";
 import Gallery from "./Gallery";
 import Icon from "./Icon";
 import ProjectDetails from "./ProjectDetails";
-export default function ProjectCard({ project, index, inline = false }) {
+export default function ProjectCard({ project, index, inline = false, compact = false, detailsAction }) {
   const Heading = inline ? "h3" : "h2";
   return (
     <article
-      className={`project-card ${inline ? "home-project-card" : ""}`}
+      className={`project-card ${inline ? "home-project-card" : ""} ${compact ? "compact-project-card" : ""}`}
       id={inline ? `project-${project.slug}` : undefined}
     >
       <Gallery
@@ -39,6 +39,7 @@ export default function ProjectCard({ project, index, inline = false }) {
             <li key={tech}>{tech}</li>
           ))}
         </ul>
+        {detailsAction}
         <Link
           href={`/projects/${project.slug}`}
           className="text-link case-link"
@@ -47,7 +48,7 @@ export default function ProjectCard({ project, index, inline = false }) {
           <Icon size={18} />
         </Link>
       </div>
-      {inline && <ProjectDetails project={project} />}
+      {inline && !detailsAction && <ProjectDetails project={project} />}
     </article>
   );
 }

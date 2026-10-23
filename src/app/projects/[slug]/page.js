@@ -1,8 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getProject, projects } from "@/data/projects";
-import Gallery from "@/components/Gallery";
-import EvidenceLinks from "@/components/EvidenceLinks";
+import CaseContent from "@/components/CaseContent";
 import Icon from "@/components/Icon";
 export function generateStaticParams() {
   return projects.map(({ slug }) => ({ slug }));
@@ -83,6 +82,7 @@ export default async function ProjectPage({ params }) {
             <a href="#project-gallery">The experience</a>
             <a href="#contribution">My contribution</a>
             <a href="#decisions">Design & decisions</a>
+            {project.phases?.length > 0 && <a href="#evolution">Project evolution</a>}
             <a href="#outcome">Outcome & reflection</a>
           </nav>
           <span className="case-index">
@@ -90,61 +90,7 @@ export default async function ProjectPage({ params }) {
           </span>
         </aside>
         <div className="case-content">
-          <section id="overview">
-            <span className="eyebrow">01 / The context</span>
-            <h2>The idea behind the work.</h2>
-            {project.overview.map((text) => (
-              <p key={text}>{text}</p>
-            ))}
-          </section>
-          <section id="project-gallery">
-            <div className="case-section-heading">
-              <span className="eyebrow">02 / The experience</span>
-              <h2>A closer look.</h2>
-            </div>
-            <Gallery
-              images={project.gallery}
-              title={project.title}
-              tone={project.tone}
-              expandable
-              priority
-            />
-            <EvidenceLinks links={project.evidence} detailed />
-          </section>
-          <section id="contribution">
-            <span className="eyebrow">03 / My contribution</span>
-            <h2>Where I contributed.</h2>
-            <div className="contribution-cards">
-              {project.contributions.map((item, i) => (
-                <div className="contribution-item" key={item.title}>
-                  <span className="contribution-number">0{i + 1}</span>
-                  <h3>{item.title}</h3>
-                  <p>{item.text}</p>
-                </div>
-              ))}
-            </div>
-          </section>
-          <section id="decisions">
-            <span className="eyebrow">04 / Design & decisions</span>
-            <h2>The thinking in the details.</h2>
-            {project.decisions.map((item) => (
-              <div className="decision" key={item.title}>
-                <h3>{item.title}</h3>
-                <p>{item.text}</p>
-              </div>
-            ))}
-          </section>
-          <section id="outcome">
-            <span className="eyebrow">05 / Outcome & reflection</span>
-            <h2>What came out of it.</h2>
-            <p>{project.outcome}</p>
-            <div className="reflection">
-              <span className="small-label">What I take forward</span>
-              <p>{project.takeaway}</p>
-            </div>
-            <h3>Context & next steps</h3>
-            <p>{project.limitations}</p>
-          </section>
+          <CaseContent project={project} />
         </div>
       </div>
       <div className="next-project">

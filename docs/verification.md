@@ -1,32 +1,37 @@
 # Verification — 23 October 2026
 
-## Single-page update
+## Final implementation checks
 
-- All eight projects now appear on home, in the original priority order. Every entry has native, initially collapsed details containing the same case data, with independent case links retained.
-- Verified keyboard Enter/Space disclosure operation for all eight projects without navigating away. The open summary remains available beneath the sticky header for closing long sections.
-- Checked the expanded ThaimeUp layout at actual 320, 375, 768, 1280 and 1440px viewports: no horizontal overflow. Inspected desktop and mobile presentation and verified the mobile Work link closes the menu and moves to the homepage work section.
-- Updated homepage integration coverage; all four tests and the production build pass. No browser errors were recorded during this flow.
-- These checks cover the single-page update; the original Lighthouse and résumé limitations below remain unchanged.
-
-## Completed
-
-- Production build: Next.js 16.4.2, all eight case routes generated.
-- Four HTTP integration tests pass against the production server: case routes and assets, homepage content, redirects/404, sitemap/robots/share image.
-- Chrome responsive checks at 320, 375, 768, 1280 and 1440 CSS pixels: homepage, projects and Junior Ranger case. No visible text clipping, image distortion or unintended horizontal overflow.
-- Chrome/in-app browser: gallery navigation, disabled endpoints, image loading, enlargement, Escape and focus restoration checked.
-- Safari: Food Buddy gallery navigation, enlargement and Escape dismissal checked.
-- Production dependency audit: no known vulnerabilities at the time of the check.
+- Production build passes on Next.js 16.4.2. All eight independent case routes are generated.
+- Seven integration tests pass against the local production server: all cases/canonicals, eight ordered homepage summaries and disclosure relationships, navigation/contact/profile context, Junior Ranger phases/deferred video, local gallery/photo assets, legacy redirects/404, and discovery/share endpoints.
+- Five widths checked in the in-app Chromium browser: 320, 375, 768, 1280 and 1440 CSS pixels. Expanded ThaimeUp and SafeMind panels have no horizontal overflow. Both remain open independently. Desktop panels span the row; mobile DOM order puts each panel immediately after its own card.
+- Keyboard Enter/Space opens project details. Bottom collapse now restores a visible originating trigger after removal of the panel. Verified on desktop and mobile after fixing a conflict with page-wide smooth scrolling. Navigation anchors now use ordinary document scrolling.
+- Mobile navigation opens, closes after selection, and supports Escape. Gallery arrow keys, disabled endpoints, thumbnail navigation, enlargement, keyboard movement inside the dialog, Escape, restored focus and restored body scrolling were checked. The gallery retains native horizontal touch scrolling; a physical-device swipe test has not been performed.
+- The final demo is absent as a video element until requested. On activation it loads the complete 240.768-second optimised copy, with native controls, no autoplay and no playback error. Space starts/pauses playback; collapsing the featured case pauses it.
+- New Portfolio gallery screenshots show the actual implementation on desktop and mobile, with the previous version retained for comparison.
+- Three authorised LinkedIn photos are stored locally with meaningful descriptions and visible source links. The original demo and private source/agreement remain unchanged and are not public downloads.
 - `git diff --check` passes.
 
-Local screenshots are saved in the parent workspace under `output/portfolio-qa/`; they are not published as repository assets.
+## Mobile Lighthouse laboratory measurements
 
-## Still required / limitations
+Measured in native Chrome DevTools on the local **production build**, not the development server. Lighthouse 13.4.1, Chromium 155.0.0.0, emulated Moto G Power, Slow 4G, navigation / initial-page-load mode. Chrome remained foreground during each audit. These are valid single runs, unlike the earlier NO_FCP attempt.
 
-- Neil-reviewed résumé PDF is pending from Kris. The live implementation uses an explicit “Request résumé” email link, not an unapproved older file.
-- Lighthouse mobile audit was attempted in Chrome DevTools but returned `NO_FCP` after the browser lost foreground focus. This is an invalid run: no performance score or Core Web Vitals pass is claimed. A valid three-page audit and comparable pre-change baseline remain outstanding.
-- No three-person recruitment reading study or real-user Core Web Vitals data was collected.
-- Jarvis and the five secondary projects have one source screenshot each. Junior Ranger and Food Buddy each have an overview plus three extracted original screens. Further genuine screenshots can be added without changing the gallery component.
-- External evidence links retain their original destinations; availability behind sign-in or third-party restrictions is not guaranteed.
-- The development-only audit chain through `eslint-config-next` has five high findings; its suggested fix would downgrade the framework lint configuration. Runtime dependencies are clean. No forced downgrade was applied.
+| Page | Performance | Accessibility | Best Practices | SEO | FCP | LCP | TBT | CLS |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| `/` | 96 | 100 | 100 | 100 | 0.9 s | 2.7 s | 0 ms | 0 |
+| `/projects` | 95 | 100 | 100 | 100 | 0.8 s | 2.9 s | 10 ms | 0 |
+| `/projects/junior-ranger` | 96 | 100 | 100 | 100 | 0.8 s | 2.8 s | 0 ms | 0 |
 
-Production promotion should follow a successful branch preview and confirmation of the existing Vercel domain binding. No new hosting project or domain is needed.
+Captured approximately 14:02–14:04 AEST. The Performance 90 target is met in these lab runs. LCP remains above the 2.5-second target. A Lighthouse accessibility score does not certify accessibility; TBT is not INP. Results are not production-network or real-user Core Web Vitals data. No comparable before/after baseline is claimed. Final follow-up changes added below-fold Portfolio screenshots, refined text and corrected collapse scrolling; these scores describe the measured build.
+
+Local screenshots and audit captures are in the parent workspace under `output/portfolio-qa/`. Only selected actual website screenshots are published as Portfolio gallery assets.
+
+## Delivery and limits
+
+- Vercel dashboard confirms repository `ruby23719111/kris-portfolio`, production source `main` and domain `krishsu.vercel.app`. Existing PR #1 and its branch preview are the release path.
+- Neil-reviewed résumé PDF has not been supplied. All résumé entries use the approved, working `Request résumé` email path.
+- Safari's earlier Food Buddy gallery check passed in the previous iteration. During this final iteration Safari could not provide an operable window after launch attempts, so the revised homepage and final video have **not** been reverified in Safari. Do not report that check as passed.
+- No three-person recruiter reading study, physical-device test or real-user Core Web Vitals data was collected.
+- Hey Jarvis and the other secondary projects retain authentic source imagery; additional screens have not been invented. Portfolio now has actual desktop/mobile screenshots. Junior Ranger final case has six extracted frames, with a separate early-version gallery.
+- External evidence links preserve their verified source destinations; third-party login and availability restrictions remain outside the website.
+- The earlier dependency audit found no runtime vulnerabilities, with five findings in the development-only ESLint dependency chain. No forced framework downgrade was applied.

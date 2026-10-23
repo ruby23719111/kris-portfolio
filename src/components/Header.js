@@ -1,13 +1,31 @@
 "use client";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 import { site, resumeHref } from "@/data/site";
 import Icon from "./Icon";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const [active, setActive] = useState("");
+  const pathname = usePathname();
   const toggle = useRef(null);
   const header = useRef(null);
+  useEffect(() => {
+    if (pathname !== "/") return;
+    const sections = ["selected-work", "experience", "journey", "contact"];
+    const update = () => {
+      let current = "";
+      for (const id of sections) {
+        if (document.getElementById(id)?.getBoundingClientRect().top <= 160)
+          current = id;
+      }
+      setActive(current);
+    };
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    return () => window.removeEventListener("scroll", update);
+  }, [pathname]);
   useEffect(() => {
     if (!open) return;
     const dismiss = (event) => {
@@ -60,8 +78,9 @@ export default function Header() {
             if (event.target.closest("a")) setOpen(false);
           }}
         >
-          <Link href="/#selected-work">Work</Link>
-          <Link href="/#about">About</Link>
+          {[["selected-work", "Work"], ["experience", "Experience"], ["journey", "My Journey"], ["contact", "Contact"]].map(([id, label]) => (
+            <Link key={id} href={`/#${id}`} aria-current={(pathname === "/" && active === id) || (id === "selected-work" && pathname.startsWith("/projects")) ? "location" : undefined}>{label}</Link>
+          ))}
           <a
             href={resumeHref}
             target={site.resume ? "_blank" : undefined}
@@ -70,9 +89,7 @@ export default function Header() {
             {site.resume ? "Résumé" : "Request résumé"}
             <Icon name="external" size={16} />
           </a>
-          <Link href="/#contact" className="nav-contact">
-            Contact <Icon name="arrow" size={16} />
-          </Link>
+
         </nav>
       </div>
     </header>

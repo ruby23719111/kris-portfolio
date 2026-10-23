@@ -7,24 +7,7 @@ const screen = (
   height = 900,
 ) => ({ src, alt, caption, kind, width, height });
 
-export const projects = [
-  {
-    slug: "junior-ranger",
-    title: "Junior Ranger",
-    subtitle: "A little curiosity. A world to discover.",
-    category: "Industry",
-    status: "Learning app prototype",
-    featured: true,
-    tone: "ranger",
-    oneLiner:
-      "A wildlife learning app that turns exploring local nature into photo-based missions for young learners.",
-    role: "Team leadership & mobile development",
-    tech: ["Swift", "AI integration", "Mobile UX"],
-    contributionSummary: [
-      "Combined team leadership with mobile app development.",
-      "Helped bring wildlife exploration and learning activities into one app experience.",
-    ],
-    gallery: [
+const juniorRangerEarlyGallery = [
       screen(
         "/projects/junior-ranger.webp",
         "Junior Ranger home, nature missions and photo identification screens",
@@ -57,44 +40,186 @@ export const projects = [
         497,
         1022,
       ),
+    ];
+
+export const projects = [
+  {
+    slug: "junior-ranger",
+    title: "Junior Ranger",
+    subtitle: "A little curiosity. A world to discover.",
+    category: "Industry-linked capstone",
+    status: "Final project version",
+    featured: true,
+    tone: "ranger",
+    oneLiner:
+      "A wildlife learning app where young learners complete photo missions, discover species and play learning games.",
+    role: "Team lead · Mobile & backend development",
+    tech: ["React Native / Expo", "Python / Flask", "Vertex AI"],
+    contributionSummary: [
+      "Built mobile and backend integrations connecting photo missions with wildlife recognition.",
+      "Led team delivery and contributed model integration, narration and a shared interface system.",
     ],
-    evidence: [
-      {
-        label: "Watch walkthrough",
-        type: "Video · YouTube",
-        href: "https://youtube.com/shorts/4QIalMF5-Is",
-      },
+    gallery: [
+      screen(
+        "/projects/junior-ranger/final-home.webp",
+        "Final Junior Ranger home with the current quest, progress and wildlife learning entry points",
+        "Start with a quest and see progress through the learning experience.",
+        "Final demo frame",
+        552,
+        1200,
+      ),
+      screen(
+        "/projects/junior-ranger/final-missions.webp",
+        "Final mission selection with birds, animals and plants categories",
+        "Choose a wildlife category to find a photo mission.",
+        "Final demo frame",
+        552,
+        1200,
+      ),
+      screen(
+        "/projects/junior-ranger/final-photo.webp",
+        "Photo review screen showing an ibis image with submit and retake actions",
+        "Review the selected photograph before submitting it for recognition.",
+        "Final demo frame",
+        552,
+        1200,
+      ),
+      screen(
+        "/projects/junior-ranger/final-reward.webp",
+        "Mission success screen with earned points and an unlocked clothing reward",
+        "A completed mission connects progress with a visible reward.",
+        "Final demo frame",
+        552,
+        1200,
+      ),
+      screen(
+        "/projects/junior-ranger/final-quiz.webp",
+        "Wildlife fact and knowledge question in the final Junior Ranger app",
+        "Continue from identifying wildlife to learning about it.",
+        "Final demo frame",
+        552,
+        1200,
+      ),
+      screen(
+        "/projects/junior-ranger/final-games.webp",
+        "Games menu with Drawing Studio, Sort the Rubbish and Memory Match",
+        "Explore learning activities beyond the camera-based missions.",
+        "Final demo frame",
+        552,
+        1200,
+      ),
     ],
+    video: {
+      src: "/videos/junior-ranger-final.mp4",
+      poster: "/projects/junior-ranger/final-home.webp",
+      title: "Junior Ranger — final project walkthrough",
+      caption:
+        "The final demo shows the app’s missions, recognition flow, learning activities and rewards. Recorded demonstration; not a field evaluation.",
+      durationLabel: "4 min",
+      type: "video/mp4",
+    },
+    evidence: [],
     overview: [
-      "Junior Ranger is a team project exploring how a mobile app can support Indigenous children learning about local wildlife. The product connects an outdoor activity with a small, understandable task: find something in nature, take a photograph and continue a learning mission.",
-      "The interface brings the current quest, progress and exploration activities into the same experience. The screens follow the journey from the home screen to a mission and its photo-identification step.",
+      "Junior Ranger is a two-semester team capstone supporting the Queensland Indigenous Land and Sea Ranger program. The app explores how First Nations children can learn about local wildlife through photo missions, facts, quizzes and games.",
+      "The final project version brings those activities into a connected mobile experience. I was the team lead and contributed across mobile development, the Python backend and model integration. The product shown here is a shared team outcome.",
     ],
     contributions: [
       {
-        title: "Mobile application development",
-        text: "My role included developing the mobile application as part of the team. The project brings together mission-based activities and wildlife identification, with Swift and external recognition services in the project stack.",
+        title: "Connect the app, backend and recognition models",
+        text: "I connected the React Native / Expo app to recognition and species APIs through a Flask backend. My work included labelled datasets, custom Vertex AI models and integrating prediction checks into the mission flow.",
       },
       {
-        title: "Team leadership",
-        text: "I also took on a team leadership role, connecting the product’s learning purpose with the work needed to build a coherent mobile experience. The app shown here is a shared team outcome, with my contribution spanning development and coordination.",
+        title: "Support learning and a consistent interface",
+        text: "I integrated Gemini narration and contributed a shared UI system and avatar assets. Narration provides another way to access the learning content, alongside the visible text and activities.",
+      },
+      {
+        title: "Coordinate a shared team delivery",
+        text: "I used Jira and GitHub to coordinate sprints and turn client feedback into tasks. My earlier independent prototype helped establish the camera and recognition workflow before the team developed the final experience.",
       },
     ],
     decisions: [
       {
-        title: "Give each exploration a clear next step",
-        text: "The displayed flow moves from a daily quest to a named mission, then to a photograph. A mission such as finding a sunflower makes the activity concrete. The current task stays visible while the image is being identified, so the learner retains context.",
+        title: "Treat recognition as a decision, not just a prediction",
+        text: "The final implementation checks the expected category, target species and prediction confidence before awarding progress. An uncertain result should let the learner try again. A model score alone does not establish that the task was completed correctly.",
       },
       {
-        title: "Show the state of the task",
-        text: "The identification screen shows progress and keeps a retake action available. The interaction gives the learner context while waiting, and a clear way to try another photograph.",
+        title: "Keep the next action clear",
+        text: "Photo review separates taking a picture from submitting it. Visible progress, retry controls and narration states help explain what is happening. The surrounding interface matters when recognition or audio depends on a network request.",
       },
     ],
     outcome:
-      "The prototype brings together a daily quest, a mission list and a photo-identification step. The walkthrough shows the mission-based experience; the team’s project stack includes Swift, Google Vision API and iNaturalist API.",
+      "The team completed a functional capstone version with a React Native / Expo app, Flask service and model integration. The final demo shows the connected journey through missions, photo review, completion, wildlife questions, games and rewards.",
     limitations:
-      "The next evaluation would focus on whether learners understand each task and how the app handles uncertain identification results. Learning outcomes and recognition accuracy still need to be evaluated beyond the prototype demonstration.",
+      "Recognition requires an active backend and internet connection. The next step is field evaluation with the intended users, including uncertain photos and unreliable connections. The demo establishes the product flow; recognition reliability and learning outcomes remain to be evaluated.",
     takeaway:
-      "A useful AI feature needs a clear surrounding experience: a reason to use it, a visible task state and a way to recover.",
+      "An AI learning feature needs a clear task, careful handling of uncertainty and an understandable path after the result.",
+    evolution: {
+      title: "How the project evolved",
+      intro:
+        "One project, developed in two stages. The final version is shown above; the early prototype below records where the interaction began.",
+      changes: [
+        {
+          title: "From a core flow to a connected learning experience",
+          text: "Phase 1 established the quest, mission and photo-identification flow. Phase 2 brought recognition, narration, quizzes, games and rewards together around that flow.",
+        },
+        {
+          title: "From an early prototype to the final mobile stack",
+          text: "The final app uses React Native / Expo for the cross-platform mobile experience and Flask for recognition requests. Earlier SwiftUI work remains part of the project’s development history.",
+        },
+      ],
+    },
+    phases: [
+      {
+        id: "phase-1",
+        title: "Phase 1 — establishing the core flow",
+        label: "Earlier prototype",
+        summary:
+          "An initial quest, mission list and photo-identification experience tested the central interaction before the final project version.",
+        role: "Initial prototyping & team leadership",
+        tech: [],
+        contributions: [
+          {
+            title: "Build the initial prototype",
+            text: "I developed the initial prototype independently and tested the camera and image-recognition workflow on an iPhone.",
+          },
+        ],
+        decisions: [],
+        gallery: juniorRangerEarlyGallery,
+        evidence: [
+          {
+            label: "Watch Phase 1 walkthrough",
+            type: "Earlier prototype · YouTube",
+            href: "https://youtube.com/shorts/4QIalMF5-Is",
+          },
+        ],
+        outcome:
+          "The earlier screenshots and walkthrough record the quest-to-photo interaction that preceded the final version.",
+        limitations:
+          "These screens show the early interaction prototype; the complete learning activities and rewards appear in Phase 2.",
+      },
+      {
+        id: "phase-2",
+        title: "Phase 2 — bringing the experience together",
+        label: "Final project version",
+        summary:
+          "The final version adds a connected set of wildlife missions, learning activities, narration and rewards, shown in the gallery and full demo above.",
+        role: "Team lead · Mobile, backend & model integration",
+        tech: ["React Native / Expo", "Python / Flask", "Vertex AI"],
+        contributions: [
+          {
+            title: "Integrate and coordinate the final experience",
+            text: "My work covered the mobile/backend connection, model and narration integration, shared interface work and team coordination.",
+          },
+        ],
+        decisions: [],
+        gallery: [],
+        evidence: [],
+        outcome:
+          "The final demo and release source provide complementary evidence of the visible product flow and its implementation.",
+        limitations:
+          "An academic capstone deliverable with documented limitations.",
+      },
+    ],
   },
   {
     slug: "food-buddy",
@@ -352,7 +477,7 @@ export const projects = [
   },
   {
     slug: "mcp-exploration",
-    title: "Tool-enabled LLMs",
+    title: "Building Tool-Enabled LLMs with MCP",
     subtitle: "Giving a conversation useful tools.",
     category: "Personal",
     status: "MCP exploration",
@@ -454,7 +579,7 @@ export const projects = [
   },
   {
     slug: "portfolio",
-    title: "This portfolio",
+    title: "Personal Portfolio Website",
     subtitle: "Making the work easier to understand.",
     category: "Personal",
     status: "Portfolio website",
@@ -465,6 +590,9 @@ export const projects = [
     role: "Content, UX/UI & front-end development",
     tech: ["Next.js", "React", "Responsive CSS"],
     gallery: [
+      screen("/projects/portfolio/home.webp", "Redesigned portfolio homepage with graduate positioning and selected work", "The homepage introduces my background and brings the selected work into view.", "Current website", 1280, 900),
+      screen("/projects/portfolio/experience.webp", "Experience section separating the development internship and industry capstone", "Experience cards distinguish professional, academic and community contributions.", "Current website", 1280, 900),
+      screen("/projects/portfolio/mobile.webp", "The portfolio introduction and navigation on a mobile screen", "The same reading path adapts to a single-column mobile layout.", "Current mobile website", 375, 812),
       screen(
         "/projects/portfolio.webp",
         "Previous version of Kris Hsu’s portfolio",
@@ -493,11 +621,11 @@ export const projects = [
     decisions: [
       {
         title: "Give evidence a clear reading order",
-        text: "Project cards open internal case studies, while videos, prototypes and code have explicit external links. Screenshots are available before a visitor needs to leave the site. Native links, keyboard controls and responsive layouts support that reading path.",
+        text: "All eight projects are visible on the homepage. Details expand in place, with independent case links for sharing. Screenshots are available before a visitor needs to leave the site. Videos, prototypes and source code have explicit links, while native links and keyboard controls support the reading path.",
       },
     ],
     outcome:
-      "The implementation provides a home page, eight shareable cases and an overview of the complete project collection. The image above records the earlier website for comparison.",
+      "The completed site presents all eight projects on one page, with independent case links, experience and a personal journey. Seven integration checks pass, and layout checks at five widths from 320 to 1440 pixels found no horizontal overflow. Mobile Lighthouse tests of the local production build scored 95–96 for Performance and 100 for Accessibility, Best Practices and SEO across the homepage, project list and Junior Ranger case. These are laboratory results, not real-user measurements.",
     limitations:
       "Recruiter comprehension and hiring outcomes have not been measured. Automated and browser checks can assess technical behaviour, but they do not replace a usability review with people unfamiliar with the projects.",
     takeaway:
