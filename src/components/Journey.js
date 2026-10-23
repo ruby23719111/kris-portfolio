@@ -32,8 +32,8 @@ export default function Journey() {
                 key={`${item.institution}-${item.period}`}
               >
                 <span className="education-period">{item.period}</span>
-                <h4 className="education-institution">{item.institution}</h4>
-                <p>{item.qualification}</p>
+                <h4 className="education-qualification">{item.qualification}</h4>
+                <p>{item.institution}</p>
                 {item.detail && (
                   <p className="education-detail">{item.detail}</p>
                 )}
