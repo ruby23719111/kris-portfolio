@@ -2,7 +2,9 @@ import Link from "next/link";
 import Gallery from "@/components/Gallery";
 import EvidenceLinks from "@/components/EvidenceLinks";
 import Icon from "@/components/Icon";
-import { featuredProjects } from "@/data/projects";
+import ProjectDetails from "@/components/ProjectDetails";
+import ProjectCard from "@/components/ProjectCard";
+import { projects, featuredProjects } from "@/data/projects";
 import { site, resumeHref, resumeLabel } from "@/data/site";
 export const metadata = { alternates: { canonical: "/" } };
 export default function Home() {
@@ -68,25 +70,32 @@ export default function Home() {
       >
         <div className="section-heading">
           <div>
-            <span className="eyebrow">A few things I’ve worked on</span>
+            <span className="eyebrow">
+              Eight projects / development & design
+            </span>
             <h2 id="work-title">
               Selected work<span className="blue">.</span>
             </h2>
           </div>
           <span className="section-side-note">
-            Three projects.
+            Start with three selected projects.
             <br />
-            Different ways to solve a problem.
+            Keep scrolling for the full collection.
           </span>
         </div>
         {featuredProjects.map((project, index) => (
-          <article className="featured-project" key={project.slug}>
+          <article
+            className="featured-project"
+            key={project.slug}
+            id={`project-${project.slug}`}
+          >
             <div className="featured-image">
               <Gallery
                 images={project.gallery}
                 title={project.title}
                 tone={project.tone}
                 priority={index === 0}
+                expandable
               />
             </div>
             <div className="featured-copy">
@@ -118,27 +127,46 @@ export default function Home() {
                 ))}
               </ul>
               <div className="featured-actions">
-                <Link
-                  className="button button-dark"
-                  href={`/projects/${project.slug}`}
-                >
-                  Read case study
+                <Link className="text-link" href={`/projects/${project.slug}`}>
+                  Standalone case study
                   <Icon size={18} />
                 </Link>
                 <EvidenceLinks links={project.evidence} />
               </div>
             </div>
+            <ProjectDetails project={project} />
           </article>
         ))}
-        <div className="all-work-row">
-          <p>
-            There’s more to explore — from full-stack applications to
-            experiments with AI tools.
+      </section>
+      <section
+        id="more-work"
+        className="more-work shell"
+        aria-labelledby="more-work-title"
+      >
+        <div className="section-heading">
+          <div>
+            <span className="eyebrow">Keep exploring / 04–08</span>
+            <h2 id="more-work-title">
+              More work<span className="blue">.</span>
+            </h2>
+          </div>
+          <p className="section-side-note">
+            Open any project’s details
+            <br />
+            without leaving this page.
           </p>
-          <Link className="button button-outline" href="/projects">
-            View all 8 projects
-            <Icon />
-          </Link>
+        </div>
+        <div className="home-projects-list">
+          {projects
+            .filter((project) => !project.featured)
+            .map((project, index) => (
+              <ProjectCard
+                key={project.slug}
+                project={project}
+                index={index + 3}
+                inline
+              />
+            ))}
         </div>
       </section>
       <section
@@ -168,7 +196,7 @@ export default function Home() {
               others.
             </p>
             <div className="capability-list">
-              <Link href="/projects/food-buddy">
+              <Link href="#project-food-buddy">
                 <span>01</span>
                 <div>
                   <strong>Build the experience</strong>
@@ -176,7 +204,7 @@ export default function Home() {
                 </div>
                 <Icon name="external" />
               </Link>
-              <Link href="/projects/ThaimeUp">
+              <Link href="#project-ThaimeUp">
                 <span>02</span>
                 <div>
                   <strong>Connect the pieces</strong>
@@ -184,7 +212,7 @@ export default function Home() {
                 </div>
                 <Icon name="external" />
               </Link>
-              <Link href="/projects/heyjarvis">
+              <Link href="#project-heyjarvis">
                 <span>03</span>
                 <div>
                   <strong>Start with the person</strong>

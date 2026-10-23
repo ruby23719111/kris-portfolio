@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { projects, featuredProjects } from "../src/data/projects.js";
+import { projects } from "../src/data/projects.js";
 import { access } from "node:fs/promises";
 const base = process.env.TEST_BASE_URL || "http://localhost:4173";
 
@@ -26,10 +26,36 @@ test("Every published case is reachable, identifiable and canonical", async () =
       await access(new URL(`../public${image.src}`, import.meta.url));
   }
 });
-test("Homepage exposes selected projects and working contact paths", async () => {
+test("Homepage exposes all eight projects, inline details and contact paths", async () => {
   const html = await (await fetch(base)).text();
-  for (const project of featuredProjects)
-    assert.ok(html.includes(`href="/projects/${project.slug}"`));
+  for (const project of projects) {
+    assert.ok(
+      html.includes(`id="project-${project.slug}"`),
+      project.slug + " on homepage",
+    );
+    assert.ok(
+      html.includes(`href="/projects/${project.slug}"`),
+      project.slug + " shareable case",
+    );
+  }
+  assert.equal(
+    (html.match(/<details class="project-details"/g) || []).length,
+    8,
+  );
+  assert.equal((html.match(/<summary>/g) || []).length, 8);
+  assert.ok(!/<details[^>]* open/.test(html), "Details start collapsed");
+  assert.ok(
+    html.includes('href="/#selected-work"'),
+    "Work navigation stays on home",
+  );
+  assert.ok(
+    html.indexOf('id="project-junior-ranger"') <
+      html.indexOf('id="project-food-buddy"'),
+  );
+  assert.ok(
+    html.indexOf('id="project-food-buddy"') <
+      html.indexOf('id="project-heyjarvis"'),
+  );
   assert.ok(html.includes("mailto:kriscchsu@gmail.com"));
   assert.ok(html.includes('id="about"'));
   assert.ok(html.includes('id="contact"'));

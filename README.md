@@ -1,6 +1,6 @@
 # Kris Hsu — portfolio
 
-A Next.js portfolio for graduate and junior software-development opportunities in Australia. Eight project cases, three selected works, real screenshot galleries and clear individual contributions.
+A Next.js portfolio for graduate and junior software-development opportunities in Australia. All eight projects are visible on the homepage: three selected works followed by five compact entries. Native disclosure controls reveal full details in place; independent case URLs remain available for sharing. Real screenshot galleries and clear individual contributions are shared across both views.
 
 ## Run
 

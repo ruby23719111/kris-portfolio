@@ -1,5 +1,13 @@
 # Verification — 23 October 2026
 
+## Single-page update
+
+- All eight projects now appear on home, in the original priority order. Every entry has native, initially collapsed details containing the same case data, with independent case links retained.
+- Verified keyboard Enter/Space disclosure operation for all eight projects without navigating away. The open summary remains available beneath the sticky header for closing long sections.
+- Checked the expanded ThaimeUp layout at actual 320, 375, 768, 1280 and 1440px viewports: no horizontal overflow. Inspected desktop and mobile presentation and verified the mobile Work link closes the menu and moves to the homepage work section.
+- Updated homepage integration coverage; all four tests and the production build pass. No browser errors were recorded during this flow.
+- These checks cover the single-page update; the original Lighthouse and résumé limitations below remain unchanged.
+
 ## Completed
 
 - Production build: Next.js 16.4.2, all eight case routes generated.

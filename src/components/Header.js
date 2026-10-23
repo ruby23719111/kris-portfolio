@@ -1,12 +1,10 @@
 "use client";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { site, resumeHref } from "@/data/site";
 import Icon from "./Icon";
 
 export default function Header() {
-  const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const toggle = useRef(null);
   const header = useRef(null);
@@ -62,12 +60,7 @@ export default function Header() {
             if (event.target.closest("a")) setOpen(false);
           }}
         >
-          <Link
-            href="/projects"
-            aria-current={pathname.startsWith("/projects") ? "page" : undefined}
-          >
-            Projects
-          </Link>
+          <Link href="/#selected-work">Work</Link>
           <Link href="/#about">About</Link>
           <a
             href={resumeHref}
@@ -78,7 +71,7 @@ export default function Header() {
             <Icon name="external" size={16} />
           </a>
           <Link href="/#contact" className="nav-contact">
-            Let’s talk <Icon name="arrow" size={16} />
+            Contact <Icon name="arrow" size={16} />
           </Link>
         </nav>
       </div>

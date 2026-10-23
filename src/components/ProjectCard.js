@@ -1,15 +1,21 @@
 import Link from "next/link";
 import Gallery from "./Gallery";
 import Icon from "./Icon";
-export default function ProjectCard({ project, index }) {
+import ProjectDetails from "./ProjectDetails";
+export default function ProjectCard({ project, index, inline = false }) {
+  const Heading = inline ? "h3" : "h2";
   return (
-    <article className="project-card">
+    <article
+      className={`project-card ${inline ? "home-project-card" : ""}`}
+      id={inline ? `project-${project.slug}` : undefined}
+    >
       <Gallery
         images={project.gallery}
         title={project.title}
         tone={project.tone}
         compact
-        priority={index < 2}
+        priority={!inline && index < 2}
+        expandable={inline}
       />
       <div className="project-card-body">
         <div className="eyebrow">
@@ -17,12 +23,12 @@ export default function ProjectCard({ project, index }) {
           <span className="eyebrow-dot" />
           {project.status}
         </div>
-        <h2>
+        <Heading>
           <Link href={`/projects/${project.slug}`}>
             {project.title}
             <Icon name="external" size={22} />
           </Link>
-        </h2>
+        </Heading>
         <p>{project.oneLiner}</p>
         <div className="card-role">
           <span>My role</span>
@@ -37,9 +43,11 @@ export default function ProjectCard({ project, index }) {
           href={`/projects/${project.slug}`}
           className="text-link case-link"
         >
-          View case study <Icon size={18} />
+          {inline ? "Standalone case study" : "View case study"}{" "}
+          <Icon size={18} />
         </Link>
       </div>
+      {inline && <ProjectDetails project={project} />}
     </article>
   );
 }
