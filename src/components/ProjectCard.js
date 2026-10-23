@@ -1,99 +1,54 @@
-"use client";
-
-import { useState } from "react";
-
-export default function ProjectCard({ project }) {
-  const { title, oneLiner, role, tech = [], image, primaryLink } = project;
-  const [hovered, setHovered] = useState(false);
-
-  const openPrimary = () => {
-    if (!primaryLink) return;
-    window.open(primaryLink, "_blank", "noreferrer");
-  };
-
+import Link from "next/link";
+import Gallery from "./Gallery";
+import Icon from "./Icon";
+import ProjectDetails from "./ProjectDetails";
+export default function ProjectCard({ project, index, inline = false, compact = false, detailsAction }) {
+  const Heading = inline ? "h3" : "h2";
   return (
     <article
-      onClick={openPrimary}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      onFocus={() => setHovered(true)}
-      onBlur={() => setHovered(false)}
-      role="link"
-      tabIndex={0}
-      onKeyDown={(e) => {
-        if (!primaryLink) return;
-        if (e.key === " ") e.preventDefault();
-        if (e.key === "Enter" || e.key === " ") openPrimary();
-      }}
-      style={{
-        border: "1px solid rgba(0,0,0,0.12)",
-        borderRadius: 16,
-        padding: 18,
-        background: "white",
-        display: "flex",
-        flexDirection: "column",
-        cursor: primaryLink ? "pointer" : "default",
-        transform: hovered && primaryLink ? "translateY(-6px)" : "translateY(0)",
-        boxShadow:
-          hovered && primaryLink
-            ? "0 12px 28px rgba(0,0,0,0.12)"
-            : "0 4px 10px rgba(0,0,0,0.06)",
-        transition: "transform 0.2s ease, box-shadow 0.2s ease",
-      }}
+      className={`project-card ${inline ? "home-project-card" : ""} ${compact ? "compact-project-card" : ""}`}
+      id={inline ? `project-${project.slug}` : undefined}
     >
-      {image && (
-        <div
-          style={{
-            width: "100%",
-            aspectRatio: "16 / 9",
-            overflow: "hidden",
-            borderRadius: 12,
-            marginBottom: 14,
-            background: "#f5f5f5",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <img
-            src={image}
-            alt={`${title} preview`}
-            style={{
-              width: "100%",
-              height: "100%",
-              objectFit: "contain",
-              transform: hovered && primaryLink ? "scale(1.03)" : "scale(1)",
-              transition: "transform 0.3s ease",
-              display: "block",
-            }}
-          />
+      <Gallery
+        images={project.gallery}
+        title={project.title}
+        tone={project.tone}
+        compact
+        priority={!inline && index < 2}
+        expandable={inline}
+      />
+      <div className="project-card-body">
+        <div className="eyebrow">
+          <span>{project.category}</span>
+          <span className="eyebrow-dot" />
+          {project.status}
         </div>
-      )}
-
-      <h3 style={{ margin: 0, fontSize: 20 }}>{title}</h3>
-
-      <p style={{ marginTop: 8, lineHeight: 1.6, opacity: 0.9 }}>{oneLiner}</p>
-
-      <p style={{ marginTop: 10, marginBottom: 0, fontSize: 14, opacity: 0.85 }}>
-        <strong>Role:</strong> {role}
-      </p>
-
-      <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: 12 }}>
-        {tech.map((t) => (
-          <span
-            key={t}
-            style={{
-              fontSize: 12,
-              padding: "6px 10px",
-              borderRadius: 999,
-              border: "1px solid rgba(0,0,0,0.12)",
-              background: "rgba(0,0,0,0.02)",
-            }}
-          >
-            {t}
-          </span>
-        ))}
+        <Heading>
+          <Link href={`/projects/${project.slug}`}>
+            {project.title}
+            <Icon name="external" size={22} />
+          </Link>
+        </Heading>
+        <p>{project.oneLiner}</p>
+        <div className="card-role">
+          <span>My role</span>
+          {project.role}
+        </div>
+        <ul className="tags" aria-label="Technologies and skills">
+          {project.tech.slice(0, 3).map((tech) => (
+            <li key={tech}>{tech}</li>
+          ))}
+        </ul>
+        {detailsAction}
+        <Link
+          href={`/projects/${project.slug}`}
+          className="text-link case-link"
+        >
+          {inline ? "Standalone case study" : "View case study"}{" "}
+          <Icon size={18} />
+        </Link>
       </div>
+      {inline && !detailsAction && <ProjectDetails project={project} />}
     </article>
   );
 }
