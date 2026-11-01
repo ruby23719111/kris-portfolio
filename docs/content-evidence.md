@@ -19,7 +19,7 @@ Reviewed 2026-10-23. Scope: the existing eight projects, five homepage sections 
 
 The provided artefacts are:
 
-- `T37JuniorRanger-Final-Demo.mp4` — approximately 4 minutes, supplied by Kris.
+- `T37JuniorRanger-Final-Demo-Full.mp4` — 5 minutes 36 seconds, supplied by Kris on 2026-11-02; replaces the earlier approximately 4-minute `T37JuniorRanger-Final-Demo.mp4` as the on-site video. It adds the onboarding tour, a second mission (Bush Stone-curlew), the Ranger Journey ranks and avatar dress-up.
 - `T37 JuniorRanger-Code-Final.zip` — release source, inspected read-only.
 - `IFN736 - T37AstraTech - JuniorRanger - Artefact Agreement.pdf` — establishes an industry-linked university capstone and documents delivery limitations.
 
@@ -27,7 +27,7 @@ The release-source root README identifies `mobile/` as the current React Native 
 
 Phase 1 uses the old screenshots and [earlier walkthrough](https://youtube.com/shorts/4QIalMF5-Is). The release source describes earlier SwiftUI work, but the exact build behind the screenshots is not matched to a revision. Its public phase-specific technology list is therefore empty. Google Vision and iNaturalist references belong to earlier/legacy material and are not presented as the final recognition stack.
 
-Phase 2 is the primary gallery and video. Frames are extracted from the supplied final demo at approximately 7, 37, 52, 60, 78 and 172 seconds (home, mission categories, photo review, reward, quiz and games). An additional avatar frame at approximately 225 seconds is available if required. Delivery images preserve the portrait aspect ratio at 552 × 1200. The on-site MP4 is an optimised copy of the complete supplied demo, with native controls and click-to-load behaviour; the original is retained unchanged outside the repository.
+Phase 2 is the primary gallery and video. Gallery frames were extracted from the earlier 4-minute final demo at approximately 7, 37, 52, 60, 78 and 172 seconds (home, mission categories, photo review, reward, quiz and games). An additional avatar frame at approximately 225 seconds is available if required. Delivery images preserve the portrait aspect ratio at 552 × 1200. The on-site MP4 is an optimised copy of the complete 5:36 full demo, with native controls and click-to-load behaviour; the original is retained unchanged outside the repository.
 
 No visual UI was generated for this portfolio. Original PNG screenshots remain in the repository for provenance. The recorded demonstration includes photographing a displayed wildlife image; it must not be described as evidence of outdoor field recognition. Prediction confidence is distinct from aggregate model accuracy. No model percentages are published without evaluation datasets and conditions.
 
