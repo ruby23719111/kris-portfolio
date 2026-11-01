@@ -1,60 +1,44 @@
 "use client";
-
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import Icon from "./Icon";
 
+// The video only downloads after the visitor asks for it.
 export default function ProjectVideo({ video }) {
   const [loaded, setLoaded] = useState(false);
   const player = useRef(null);
 
   useEffect(() => {
-    if (loaded) player.current?.focus({ preventScroll: true });
+    if (loaded) player.current?.play().catch(() => {});
   }, [loaded]);
 
   if (!video?.src) return null;
 
   return (
-    <figure className="project-video">
-      {loaded ? (
-        <video
-          ref={player}
-          className="project-video-player"
-          controls
-          playsInline
-          preload="metadata"
-          poster={video.poster}
-          aria-label={video.title}
-          tabIndex={0}
-        >
-          <source src={video.src} type={video.type || "video/mp4"} />
-          Your browser does not support embedded video. <a href={video.src}>Open the final demo</a>.
-        </video>
-      ) : (
-        <button
-          type="button"
-          className="project-video-trigger"
-          onClick={() => setLoaded(true)}
-          aria-label={`Load ${video.title}${video.durationLabel ? `, ${video.durationLabel}` : ""}`}
-        >
-          {video.poster && (
-            <Image
-              className="project-video-poster"
-              src={video.poster}
-              alt=""
-              width={1206}
-              height={2622}
-              sizes="(max-width: 767px) 85vw, 360px"
-            />
-          )}
-          <span className="project-video-label">
-            <Icon name="play" size={28} />
-            <strong>Watch final demo</strong>
-            <span>{video.durationLabel ? `${video.durationLabel} · ` : ""}Load video player</span>
-          </span>
-        </button>
-      )}
-      <figcaption>{video.caption || video.title}</figcaption>
+    <figure className="video">
+      <div className="video-stage">
+        {loaded ? (
+          <video ref={player} controls playsInline preload="metadata" poster={video.poster} aria-label={video.title}>
+            <source src={video.src} type="video/mp4" />
+            <a href={video.src}>Open the demo video</a>
+          </video>
+        ) : (
+          <button
+            type="button"
+            className="video-trigger"
+            onClick={() => setLoaded(true)}
+            aria-label={`Play ${video.title}, ${video.duration}`}
+          >
+            <Image src={video.poster} alt="" width={552} height={1200} sizes="280px" />
+            <span className="video-play">
+              <Icon name="play" size={28} />
+            </span>
+          </button>
+        )}
+      </div>
+      <figcaption>
+        <strong>Final demo, {video.duration}.</strong> {video.caption}
+      </figcaption>
     </figure>
   );
 }

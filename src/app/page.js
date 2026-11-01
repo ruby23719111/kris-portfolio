@@ -1,166 +1,110 @@
-import Link from "next/link";
-import Gallery from "@/components/Gallery";
-import EvidenceLinks from "@/components/EvidenceLinks";
-import Icon from "@/components/Icon";
-import ProjectDetails from "@/components/ProjectDetails";
-import ProjectGrid from "@/components/ProjectGrid";
+import Image from "next/image";
+import Contact from "@/components/Contact";
 import Experience from "@/components/Experience";
-import Journey from "@/components/Journey";
-import { projects, featuredProjects } from "@/data/projects";
-import { site, resumeHref, resumeLabel } from "@/data/site";
+import FeaturedProject from "@/components/FeaturedProject";
+import ProjectList from "@/components/ProjectList";
+import SmartLink from "@/components/SmartLink";
+import { about, communityPhotos, glance, intro, skills } from "@/data/profile";
+import { featuredProjects, otherProjects } from "@/data/projects";
+import { resumeHref, site } from "@/data/site";
+
 export const metadata = { alternates: { canonical: "/" } };
+
 export default function Home() {
   return (
     <main id="main">
-      <section className="hero shell" aria-labelledby="hero-title">
-        <div className="hero-topline">
-          <span className="availability">
-            <span />
-            Open to graduate & junior opportunities
-          </span>
-          <span className="hero-location">Australia / QUT Master of IT</span>
-        </div>
+      <section className="container hero" aria-labelledby="hero-title">
         <div className="hero-grid">
-          <div>
-            <p className="intro-label">Hi, I’m Kris Hsu.</p>
-            <h1 id="hero-title">
-              Software,
-              <br />
-              made for{" "}
-              <span className="hero-emphasis">
-                people<span className="blue">.</span>
-              </span>
-            </h1>
-          </div>
-          <div className="hero-description">
-            <p>
-              I build useful web and mobile experiences, with an eye for the
-              person on the other side of the screen.
-            </p>
-            <p className="hero-subtext">
-              Final-year Master of Information Technology student at QUT,
-              seeking graduate and junior software development roles in
-              Australia. Currently an AI App Developer Intern at Pixelz360.
-            </p>
-            <div className="hero-actions">
-              <a className="button button-primary" href="#selected-work">
-                Explore my work <Icon />
+          <div className="hero-text">
+            <h1 id="hero-title">{intro.title}</h1>
+            <p className="hero-lead">{intro.lead}</p>
+            <div className="link-row hero-actions">
+              <a className="button" href={resumeHref} target="_blank" rel="noopener noreferrer">
+                Download résumé (PDF)
               </a>
-              <a
-                className="text-link"
-                href={resumeHref}
-                target={site.resume ? "_blank" : undefined}
-                rel={site.resume ? "noopener noreferrer" : undefined}
-              >
-                {resumeLabel}
-                <Icon name="external" size={17} />
-              </a>
+              <a href={`mailto:${site.email}`}>{site.email}</a>
+              <SmartLink href={site.linkedin}>LinkedIn</SmartLink>
+              <SmartLink href={site.github}>GitHub</SmartLink>
             </div>
           </div>
+          <figure className="hero-photo">
+            <Image
+              src={intro.photo.src}
+              alt={intro.photo.alt}
+              width={intro.photo.width}
+              height={intro.photo.height}
+              sizes="(max-width: 700px) 90vw, 280px"
+              priority
+            />
+            <figcaption>{intro.photo.caption}</figcaption>
+          </figure>
         </div>
-        <div className="hero-bottom">
-          <span>Development × design × curiosity</span>
-          <a href="#selected-work">
-            Selected work <span aria-hidden="true">↓</span>
-          </a>
-        </div>
+        <dl className="glance" aria-label="At a glance">
+          {glance.map((item) => (
+            <div key={item.label}>
+              <dt>{item.label}</dt>
+              <dd>{item.value}</dd>
+            </div>
+          ))}
+        </dl>
       </section>
-      <section
-        id="selected-work"
-        className="selected-work shell"
-        aria-labelledby="work-title"
-      >
-        <div className="section-heading">
-          <div>
-            <span className="eyebrow">
-              Eight projects / development & design
-            </span>
-            <h2 id="work-title">
-              Selected work<span className="blue">.</span>
-            </h2>
-          </div>
-          <span className="section-side-note">
-            Start with three selected projects.
-            <br />
-            Keep scrolling for the full collection.
-          </span>
-        </div>
+
+      <section id="work" className="container section work" aria-labelledby="work-title">
+        <span id="selected-work" className="anchor-alias" aria-hidden="true" />
+        <h2 id="work-title">Selected work</h2>
         {featuredProjects.map((project, index) => (
-          <article
-            className="featured-project"
-            key={project.slug}
-            id={`project-${project.slug}`}
-          >
-            <div className="featured-image">
-              {project.video && <span className="featured-version">Final project version · Phase 2</span>}
-              <Gallery
-                images={project.gallery.slice(0, 5)}
-                title={project.title}
-                tone={project.tone}
-                priority={index === 0}
-                expandable
-              />
-            </div>
-            <div className="featured-copy">
-              <div className="project-index">
-                0{index + 1}
-                <span>
-                  {project.category}
-                </span>
-              </div>
-              <h3>
-                <Link href={`/projects/${project.slug}`}>{project.title}</Link>
-              </h3>
-              <p className="project-subtitle">{project.subtitle}</p>
-              <p className="featured-role">{project.role}</p>
-              <p className="project-summary">{project.oneLiner}</p>
-              <div className="contribution-block">
-                <span className="small-label">My contribution</span>
-                <ul>
-                  {project.contributionSummary.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-              </div>
-              <ul className="tags" aria-label="Technologies and skills">
-                {project.tech.map((tech) => (
-                  <li key={tech}>{tech}</li>
-                ))}
-              </ul>
-              <div className="featured-actions">
-                <Link className="text-link" href={`/projects/${project.slug}`}>
-                  Standalone case study
-                  <Icon size={18} />
-                </Link>
-                <EvidenceLinks links={project.evidence} />
-              </div>
-            </div>
-            <ProjectDetails project={project} />
-          </article>
+          <FeaturedProject key={project.slug} project={project} priority={index === 0} />
         ))}
       </section>
-      <section
-        id="more-work"
-        className="more-work shell"
-        aria-labelledby="more-work-title"
-      >
-        <div className="section-heading">
-          <div>
-            <span className="eyebrow">Keep exploring / 04–08</span>
-            <h2 id="more-work-title">
-              More work<span className="blue">.</span>
-            </h2>
-          </div>
-          <p className="section-side-note">
-            Open any project’s details
-            <br />
-            without leaving this page.
-          </p>
-        </div>
-        <ProjectGrid projects={projects.filter((project) => !project.featured)} />
+
+      <section className="container section" aria-labelledby="more-title">
+        <h2 id="more-title">Other projects</h2>
+        <ProjectList projects={otherProjects} />
       </section>
+
+      <section id="skills" className="container section" aria-labelledby="skills-title">
+        <h2 id="skills-title">Skills</h2>
+        <dl className="skills">
+          {skills.map((item) => (
+            <div key={item.label}>
+              <dt>{item.label}</dt>
+              <dd>{item.value}</dd>
+            </div>
+          ))}
+        </dl>
+      </section>
+
       <Experience />
-      <Journey />
+
+      <section id="about" className="container section" aria-labelledby="about-title">
+        <span id="journey" className="anchor-alias" aria-hidden="true" />
+        <div className="about">
+          <div className="about-text">
+            <h2 id="about-title">{about.title}</h2>
+            {about.paragraphs.map((text) => (
+              <p key={text}>{text}</p>
+            ))}
+            <p className="route">
+              {about.route.map((stop, index) => (
+                <span key={stop}>
+                  {index > 0 && <span aria-hidden="true">—</span>}
+                  {stop}
+                </span>
+              ))}
+            </p>
+          </div>
+          <div className="about-photos">
+            {communityPhotos.map((photo) => (
+              <figure key={photo.src}>
+                <Image src={photo.src} alt={photo.alt} width={photo.width} height={photo.height} sizes="(max-width: 700px) 45vw, 212px" />
+                <figcaption>{photo.caption}</figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <Contact />
     </main>
   );
 }

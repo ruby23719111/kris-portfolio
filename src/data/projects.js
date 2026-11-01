@@ -1,638 +1,364 @@
-const screen = (
-  src,
-  alt,
-  caption,
-  kind = "App screenshot",
-  width = 1600,
-  height = 900,
-) => ({ src, alt, caption, kind, width, height });
-
-const juniorRangerEarlyGallery = [
-      screen(
-        "/projects/junior-ranger.webp",
-        "Junior Ranger home, nature missions and photo identification screens",
-        "The experience at a glance: choose a quest, explore a mission and photograph a discovery.",
-        "App screenshots",
-        1600,
-        904,
-      ),
-      screen(
-        "/projects/gallery/junior-ranger-1.webp",
-        "Junior Ranger home showing today’s quest and mission progress",
-        "A clear starting point: today’s quest, mission progress and exploration shortcuts.",
-        "App screenshot",
-        509,
-        1022,
-      ),
-      screen(
-        "/projects/gallery/junior-ranger-2.webp",
-        "Nature Explorer mission list with sunflower and butterfly activities",
-        "Mission cards connect a recognisable plant or animal with a specific activity.",
-        "App screenshot",
-        497,
-        1022,
-      ),
-      screen(
-        "/projects/gallery/junior-ranger-3.webp",
-        "Sunflower identification screen with a captured photo and identifying status",
-        "The photo step keeps the active mission, identification status and retake action together.",
-        "App screenshot",
-        497,
-        1022,
-      ),
-    ];
+const shot = (src, alt, caption, width, height) => ({ src, alt, caption, width, height });
 
 export const projects = [
   {
     slug: "junior-ranger",
     title: "Junior Ranger",
-    subtitle: "A little curiosity. A world to discover.",
-    category: "Industry-linked capstone",
-    status: "Final project version",
     featured: true,
-    tone: "ranger",
+    meta: "Queensland Government internship · 2026 · Team lead",
+    caseMeta: "Queensland Government internship · 2026",
     oneLiner:
-      "A wildlife learning app where young learners complete photo missions, discover species and play learning games.",
-    role: "Team lead · Mobile & backend development",
-    tech: ["React Native / Expo", "Python / Flask", "Vertex AI"],
-    contributionSummary: [
-      "Built mobile and backend integrations connecting photo missions with wildlife recognition.",
-      "Led team delivery and contributed model integration, narration and a shared interface system.",
+      "A mobile app where First Nations children photograph local wildlife, an AI model recognises the species, and they unlock facts, quizzes and games.",
+    role: "Team lead. Mobile, backend and model integration.",
+    listRole: "Team lead · Queensland Government internship",
+    tech: ["React Native / Expo", "Python / Flask", "Vertex AI", "Gemini"],
+    facts: [{ label: "Project", value: "Two phases, team of five, for the Queensland Indigenous Land and Sea Ranger program." }],
+    highlights: [
+      "Built the Flask API between the Expo app, custom Vertex AI models and Gemini narration.",
+      "Worked on three custom Vertex AI models covering the 18 species the missions use.",
+      "Led the team: sprints in Jira, client feedback turned into tasks.",
+    ],
+    panel: { kind: "phones", tone: "#EEE0A8" },
+    cover: [
+      shot("/projects/junior-ranger/final-home.webp", "Junior Ranger home screen with today’s quest", "Start with today’s quest.", 552, 1200),
+      shot("/projects/junior-ranger/final-photo.webp", "Reviewing a photo of an ibis before submitting it for recognition", "Check the photo before sending it.", 552, 1200),
+      shot("/projects/junior-ranger/final-reward.webp", "Mission accomplished screen with points and a new reward", "A correct match earns points and gear.", 552, 1200),
     ],
     gallery: [
-      screen(
-        "/projects/junior-ranger/final-home.webp",
-        "Final Junior Ranger home with the current quest, progress and wildlife learning entry points",
-        "Start with a quest and see progress through the learning experience.",
-        "Final demo frame",
-        552,
-        1200,
-      ),
-      screen(
-        "/projects/junior-ranger/final-missions.webp",
-        "Final mission selection with birds, animals and plants categories",
-        "Choose a wildlife category to find a photo mission.",
-        "Final demo frame",
-        552,
-        1200,
-      ),
-      screen(
-        "/projects/junior-ranger/final-photo.webp",
-        "Photo review screen showing an ibis image with submit and retake actions",
-        "Review the selected photograph before submitting it for recognition.",
-        "Final demo frame",
-        552,
-        1200,
-      ),
-      screen(
-        "/projects/junior-ranger/final-reward.webp",
-        "Mission success screen with earned points and an unlocked clothing reward",
-        "A completed mission connects progress with a visible reward.",
-        "Final demo frame",
-        552,
-        1200,
-      ),
-      screen(
-        "/projects/junior-ranger/final-quiz.webp",
-        "Wildlife fact and knowledge question in the final Junior Ranger app",
-        "Continue from identifying wildlife to learning about it.",
-        "Final demo frame",
-        552,
-        1200,
-      ),
-      screen(
-        "/projects/junior-ranger/final-games.webp",
-        "Games menu with Drawing Studio, Sort the Rubbish and Memory Match",
-        "Explore learning activities beyond the camera-based missions.",
-        "Final demo frame",
-        552,
-        1200,
-      ),
+      shot("/projects/junior-ranger/final-home.webp", "Home screen with today’s quest and progress", "Start with today’s quest.", 552, 1200),
+      shot("/projects/junior-ranger/final-missions.webp", "Choosing birds, animals or plants", "Pick a habitat to find a mission.", 552, 1200),
+      shot("/projects/junior-ranger/final-photo.webp", "Reviewing a photo of an ibis before submitting", "Check the photo before sending it.", 552, 1200),
+      shot("/projects/junior-ranger/final-reward.webp", "Mission accomplished with points and a new reward", "A correct match earns points and gear.", 552, 1200),
+      shot("/projects/junior-ranger/final-quiz.webp", "A wildlife fact followed by a question", "Then learn something about it.", 552, 1200),
+      shot("/projects/junior-ranger/final-games.webp", "Games menu: Drawing Studio, Sort the Rubbish, Memory Match", "Games for when the camera’s away.", 552, 1200),
+    ],
+    links: [
+      { label: "Case study", href: "/projects/junior-ranger", primary: true },
+      { label: "4-min demo", href: "/projects/junior-ranger#demo" },
     ],
     video: {
       src: "/videos/junior-ranger-final.mp4",
       poster: "/projects/junior-ranger/final-home.webp",
-      title: "Junior Ranger — final project walkthrough",
-      caption:
-        "The final demo shows the app’s missions, recognition flow, learning activities and rewards. Recorded demonstration; not a field evaluation.",
-      durationLabel: "4 min",
-      type: "video/mp4",
+      title: "Junior Ranger final demo",
+      duration: "4 min",
+      caption: "Missions, photo review, recognition, quizzes, games and rewards. A recorded walkthrough, not a field test.",
     },
-    evidence: [],
-    overview: [
-      "Junior Ranger is a two-semester team capstone supporting the Queensland Indigenous Land and Sea Ranger program. The app explores how First Nations children can learn about local wildlife through photo missions, facts, quizzes and games.",
-      "The final project version brings those activities into a connected mobile experience. I was the team lead and contributed across mobile development, the Python backend and model integration. The product shown here is a shared team outcome.",
+    brief: [
+      "The client was the Queensland Government’s Indigenous Land and Sea Ranger program. The question was how First Nations children could learn about the wildlife around them — not from a textbook, but by going outside, finding it and photographing it.",
+      "The app is a shared team outcome. Below is what I was responsible for.",
     ],
     contributions: [
       {
-        title: "Connect the app, backend and recognition models",
-        text: "I connected the React Native / Expo app to recognition and species APIs through a Flask backend. My work included labelled datasets, custom Vertex AI models and integrating prediction checks into the mission flow.",
+        title: "Connected the app to the models.",
+        text: "The Expo app talks to a Flask backend, which calls our own Vertex AI models. I worked on the labelled datasets and the custom models, and wired the prediction check into the mission flow.",
       },
       {
-        title: "Support learning and a consistent interface",
-        text: "I integrated Gemini narration and contributed a shared UI system and avatar assets. Narration provides another way to access the learning content, alongside the visible text and activities.",
+        title: "Added narration and a shared UI kit.",
+        text: "Gemini reads the learning content aloud, so it isn’t only text on a screen. I also built shared interface components and the avatar assets.",
       },
       {
-        title: "Coordinate a shared team delivery",
-        text: "I used Jira and GitHub to coordinate sprints and turn client feedback into tasks. My earlier independent prototype helped establish the camera and recognition workflow before the team developed the final experience.",
+        title: "Ran the team.",
+        text: "Sprints in Jira and GitHub, regular client meetings to gather requirements, and explaining technical trade-offs in plain language to non-technical stakeholders.",
+      },
+    ],
+    architecture: {
+      steps: [
+        { title: "Mobile app", tech: "React Native / Expo" },
+        { title: "Backend API", tech: "Python / Flask, Docker", note: "Validates, resizes and strips EXIF from photos", highlight: true },
+      ],
+      services: [
+        { title: "Vertex AI AutoML", note: "three custom models: birds, animals, plants" },
+        { title: "Gemini TTS", note: "narration, cached, on Cloud Run" },
+      ],
+      text: "The app never talks to Google Cloud directly. Every photo goes through the Flask API, so credentials stay on the server and photos aren’t stored. Each model only chooses between the six species its missions use, plus “other”, and the API answers with one of four decisions: match, different species, uncertain or other.",
+    },
+    decisions: [
+      {
+        title: "A prediction isn’t a pass.",
+        text: "A photo only counts if the top result is the mission’s species, scores at least 0.80 and leads the runner-up by 10 points. Otherwise the child hears “not sure, try again” instead of a wrong answer.",
+      },
+      {
+        title: "Taking a photo and sending it are two steps.",
+        text: "Kids review the picture first and can retake it. Progress, retry and narration states are always visible, because recognition and audio both wait on the network.",
+      },
+    ],
+    outcome: [
+      "We delivered a working app with the front end, backend, models and narration connected end to end.",
+      "It’s covered by 30 automated test files on the app side and unit tests on the backend, with the cloud calls mocked.",
+      "What it hasn’t had yet is a proper accuracy test. A model’s confidence score isn’t the same as how often it’s right, so the next step is to measure accuracy on a held-out set of real photos taken by kids, then calibrate the 0.80 and 10-point thresholds against it.",
+    ],
+    phases: {
+      intro: "Phase 1, the semester before, ended with an MVP: a quest, a mission list and a photo step, tested on an iPhone. For Phase 2 we rebuilt almost all of it.",
+      image: shot("/projects/junior-ranger.webp", "Phase 1 MVP: home, mission list and photo identification screens", "Phase 1 MVP.", 1600, 904),
+      walkthrough: "https://youtube.com/shorts/4QIalMF5-Is",
+      rows: [
+        ["App", "SwiftUI, iPhone only", "React Native / Expo, one codebase for iPhone and Android"],
+        ["Recognition", "General image labels matched to species names", "Three custom Vertex AI models trained on the 18 mission species"],
+        ["Pass rule", "Name match", "Right species, score ≥ 0.80, 10-point lead; otherwise “try again”"],
+        ["Learning", "Quest, missions, photo", "Plus facts, quizzes, games, avatar rewards and Gemini narration"],
+        ["Design", "First pass", "Redesigned from scratch with a shared UI kit"],
+      ],
+      why: [
+        {
+          title: "General labels weren’t specific enough.",
+          text: "A general model can tell you it’s a bird, not which bird. Training our own models on just the species the missions ask for, plus “other”, gave the model a much narrower question to answer.",
+        },
+        {
+          title: "One codebase, more devices.",
+          text: "Moving from SwiftUI to React Native meant the same app could run on the iPhones and Android phones kids actually have.",
+        },
+        {
+          title: "Keep the cloud behind the backend.",
+          text: "In an app for children, photos and Google credentials shouldn’t live on the phone, so everything now goes through the Flask API.",
+        },
+      ],
+      myPart: [
+        ["Phase 1", "built the first camera-to-recognition flow and tested it on an iPhone."],
+        ["Phase 2", "led the team of five; connected the app, backend and models; integrated Gemini narration; ran client meetings."],
+      ],
+    },
+  },
+  {
+    slug: "ThaimeUp",
+    title: "ThaimeUp",
+    featured: true,
+    meta: "QUT coursework · 2025 · full-stack web app",
+    caseMeta: "QUT coursework · 2025",
+    oneLiner:
+      "Online ordering for a restaurant: customers browse and order, staff manage the menu and orders from a separate admin side.",
+    role: "Full-stack development",
+    listRole: "Full-stack · coursework",
+    tech: ["Python / Flask", "MySQL", "Bootstrap"],
+    highlights: [
+      "Built the whole stack: Flask routes, MySQL schema, Bootstrap front end.",
+      "Menu, basket, logged-in checkout and role-based admin pages.",
+      "Soft deletes, so removing a dish never breaks past orders.",
+    ],
+    panel: { kind: "browser", tone: "#E9E4DC" },
+    cover: [shot("/projects/thaimeup.webp", "ThaimeUp ordering site: menu categories and dishes", "The customer-facing menu.", 1600, 874)],
+    gallery: [shot("/projects/thaimeup.webp", "ThaimeUp ordering site: menu categories and dishes", "The customer-facing menu.", 1600, 874)],
+    links: [{ label: "Code on GitHub", href: "https://github.com/ruby23719111/thaimeup", primary: true }],
+    brief: [
+      "A coursework project that simulates an ordering system for a Thai restaurant, connecting the menu customers see with the admin tools behind it.",
+    ],
+    contributions: [
+      {
+        title: "Built across the stack.",
+        text: "Python and Flask on the server, MySQL for data, Bootstrap for the interface. Menu and category browsing, a basket, logged-in ordering, and admin pages for items, categories and orders.",
       },
     ],
     decisions: [
       {
-        title: "Treat recognition as a decision, not just a prediction",
-        text: "The final implementation checks the expected category, target species and prediction confidence before awarding progress. An uncertain result should let the learner try again. A model score alone does not establish that the task was completed correctly.",
+        title: "Customers and staff get different tools.",
+        text: "Ordering is open to logged-in customers; managing items, categories and orders is admin-only.",
       },
       {
-        title: "Keep the next action clear",
-        text: "Photo review separates taking a picture from submitting it. Visible progress, retry controls and narration states help explain what is happening. The surrounding interface matters when recognition or audio depends on a network request.",
+        title: "Soft-delete menu items.",
+        text: "Removing a dish hides it from the menu but keeps it in the database, so order history stays intact.",
       },
     ],
-    outcome:
-      "The team completed a functional capstone version with a React Native / Expo app, Flask service and model integration. The final demo shows the connected journey through missions, photo review, completion, wildlife questions, games and rewards.",
-    limitations:
-      "Recognition requires an active backend and internet connection. The next step is field evaluation with the intended users, including uncertain photos and unreliable connections. The demo establishes the product flow; recognition reliability and learning outcomes remain to be evaluated.",
-    takeaway:
-      "An AI learning feature needs a clear task, careful handling of uncertainty and an understandable path after the result.",
-    evolution: {
-      title: "How the project evolved",
-      intro:
-        "One project, developed in two stages. The final version is shown above; the early prototype below records where the interaction began.",
-      changes: [
-        {
-          title: "From a core flow to a connected learning experience",
-          text: "Phase 1 established the quest, mission and photo-identification flow. Phase 2 brought recognition, narration, quizzes, games and rewards together around that flow.",
-        },
-        {
-          title: "From an early prototype to the final mobile stack",
-          text: "The final app uses React Native / Expo for the cross-platform mobile experience and Flask for recognition requests. Earlier SwiftUI work remains part of the project’s development history.",
-        },
-      ],
-    },
-    phases: [
-      {
-        id: "phase-1",
-        title: "Phase 1 — establishing the core flow",
-        label: "Earlier prototype",
-        summary:
-          "An initial quest, mission list and photo-identification experience tested the central interaction before the final project version.",
-        role: "Initial prototyping & team leadership",
-        tech: [],
-        contributions: [
-          {
-            title: "Build the initial prototype",
-            text: "I developed the initial prototype independently and tested the camera and image-recognition workflow on an iPhone.",
-          },
-        ],
-        decisions: [],
-        gallery: juniorRangerEarlyGallery,
-        evidence: [
-          {
-            label: "Watch Phase 1 walkthrough",
-            type: "Earlier prototype · YouTube",
-            href: "https://youtube.com/shorts/4QIalMF5-Is",
-          },
-        ],
-        outcome:
-          "The earlier screenshots and walkthrough record the quest-to-photo interaction that preceded the final version.",
-        limitations:
-          "These screens show the early interaction prototype; the complete learning activities and rewards appear in Phase 2.",
-      },
-      {
-        id: "phase-2",
-        title: "Phase 2 — bringing the experience together",
-        label: "Final project version",
-        summary:
-          "The final version adds a connected set of wildlife missions, learning activities, narration and rewards, shown in the gallery and full demo above.",
-        role: "Team lead · Mobile, backend & model integration",
-        tech: ["React Native / Expo", "Python / Flask", "Vertex AI"],
-        contributions: [
-          {
-            title: "Integrate and coordinate the final experience",
-            text: "My work covered the mobile/backend connection, model and narration integration, shared interface work and team coordination.",
-          },
-        ],
-        decisions: [],
-        gallery: [],
-        evidence: [],
-        outcome:
-          "The final demo and release source provide complementary evidence of the visible product flow and its implementation.",
-        limitations:
-          "An academic capstone deliverable with documented limitations.",
-      },
+    outcome: [
+      "The public repository has the full source, setup instructions and documented features, so a reviewer can go from the interface straight into the code.",
+      "It’s a simulation, not a live restaurant. The repo lists interface and responsiveness improvements as next steps.",
     ],
   },
   {
     slug: "food-buddy",
     title: "QUT Food Buddy",
-    subtitle: "Making room for one more.",
-    category: "Academic",
-    status: "Mobile app project",
     featured: true,
-    tone: "food",
+    meta: "QUT team project · mobile app",
+    caseMeta: "QUT team project · mobile app",
     oneLiner:
-      "A social meal-planning app that helps university students discover, join and organise meals together.",
-    role: "Mobile development & UX/UI",
+      "Helps students find someone to eat with: browse meals on campus, join an open spot, or organise your own.",
+    role: "Mobile development and UX/UI design",
+    listRole: "Mobile & UX/UI · team project",
     tech: ["React Native", "Expo", "JavaScript"],
-    contributionSummary: [
-      "Contributed mobile development and UX/UI design.",
-      "Worked on an experience centred on discovering and organising shared meals.",
+    highlights: [
+      "Mobile development in React Native and Expo.",
+      "Designed the flows: browse, meal detail, create a meal.",
+      "Made the create form collect exactly what a meal card shows.",
+    ],
+    panel: { kind: "phones", tone: "#DDE3E7" },
+    cover: [
+      shot("/projects/gallery/foodbuddy-1.webp", "Meal list with campus filters and open spots", "Browse meals by campus.", 438, 900),
+      shot("/projects/gallery/foodbuddy-2.webp", "Meal detail with location and a join button", "See where and when, then join.", 436, 900),
+      shot("/projects/gallery/foodbuddy-3.webp", "Create-meal form with venue, campus, time and spots", "Or organise your own.", 438, 900),
     ],
     gallery: [
-      screen(
-        "/projects/foodbuddy.webp",
-        "Food Buddy meal list, meal details and create-meal screens",
-        "Browse a meal, check its details and organise a new gathering.",
-        "App screenshots",
-        1600,
-        900,
-      ),
-      screen(
-        "/projects/gallery/foodbuddy-1.webp",
-        "Meal list with search, campus filters, meeting places and available spots",
-        "Meal cards make the location, time and available places visible before opening an event.",
-        "App screenshot",
-        438,
-        900,
-      ),
-      screen(
-        "/projects/gallery/foodbuddy-2.webp",
-        "Meal detail with location, join-meal action and review form",
-        "The detail screen brings meeting information and the join action into one place.",
-        "App screenshot",
-        436,
-        900,
-      ),
-      screen(
-        "/projects/gallery/foodbuddy-3.webp",
-        "Create-meal form with venue, campus, date, time and available spots",
-        "A structured form captures the practical details someone needs to attend.",
-        "App screenshot",
-        438,
-        900,
-      ),
+      shot("/projects/gallery/foodbuddy-1.webp", "Meal list with search, campus filters, meeting places and available spots", "Browse meals by campus.", 438, 900),
+      shot("/projects/gallery/foodbuddy-2.webp", "Meal detail with location, join-meal action and review form", "See where and when, then join.", 436, 900),
+      shot("/projects/gallery/foodbuddy-3.webp", "Create-meal form with venue, campus, date, time and available spots", "Or organise your own.", 438, 900),
     ],
-    evidence: [
-      {
-        label: "Watch walkthrough",
-        type: "Video · YouTube",
-        href: "https://youtu.be/hNPBbQBeToY",
-      },
+    links: [
+      { label: "Case study", href: "/projects/food-buddy", primary: true },
+      { label: "Walkthrough video", href: "https://youtu.be/hNPBbQBeToY" },
     ],
-    overview: [
-      "Finding someone to eat with can be a small but meaningful part of settling into university. QUT Food Buddy explores that problem through a mobile app where students can discover shared meals and organise their own. The product makes a social invitation concrete through a place, a time and an available spot.",
-      "My role combined mobile application development with UX/UI design. The screens cover the core journey: browsing meals, opening an event and creating a meal. They use the in-app name “QUT Meal Buddy”; this portfolio retains the project name QUT Food Buddy.",
+    brief: [
+      "Finding someone to eat with is a small but real part of settling into uni. Food Buddy makes the invitation concrete: a place, a time and a spot left at the table.",
+      "The screens use the in-app name “QUT Meal Buddy”.",
     ],
     contributions: [
       {
-        title: "Connect the product flow and interface",
-        text: "I contributed UX/UI design to the mobile experience. The case focuses on how browsing, meal details and the creation form fit together, with consistent navigation and information that supports a decision to participate.",
+        title: "Designed the core flows.",
+        text: "Browsing meals, opening one and creating one, with consistent navigation and the details someone needs to decide whether to join.",
       },
       {
-        title: "Contribute to the mobile application",
-        text: "My development role used the project’s React Native, Expo and JavaScript stack. My focus in this case is the mobile experience. REST API and authentication capabilities sit within the wider application.",
+        title: "Worked on the mobile app.",
+        text: "React Native, Expo and JavaScript, focused on the screens shown here.",
       },
     ],
     decisions: [
       {
-        title: "Make the invitation specific",
-        text: "The meal list shows meeting place, time and available spots. Surfacing those details lets someone assess a gathering before opening it. Search and campus controls provide additional ways to narrow the list.",
+        title: "Make the invitation specific.",
+        text: "Meal cards show the meeting place, time and spots left, so you can judge a meal before opening it. Search and campus filters narrow the list.",
       },
       {
-        title: "Match creation to discovery",
-        text: "The creation screen asks for the same practical information that appears on a meal card: title, venue, campus, time and capacity. That relationship keeps the organising flow connected to what another student needs to see.",
+        title: "Ask for what people need to see.",
+        text: "The create form collects the same fields a meal card shows: title, venue, campus, time and capacity.",
       },
     ],
-    outcome:
-      "The app brings meal discovery, event details and meal creation into one experience. The screenshots and recorded walkthrough show these connected flows, including the controls for joining a meal.",
-    limitations:
-      "This is an academic project. A useful next evaluation would ask students to find a suitable meal and organise one, then observe where they hesitate. The longer-term effect on social connection would need separate research.",
-    takeaway:
-      "Small, practical interface details can make a social idea easier to understand: who can join, where to meet and what happens next.",
+    outcome: [
+      "A working app covering discovery, meal details, joining and creating meals, shown end to end in the walkthrough video.",
+      "Next I’d watch students try to find and organise a meal, and see where they hesitate.",
+    ],
   },
   {
     slug: "heyjarvis",
     title: "Hey Jarvis",
-    subtitle: "A familiar voice in a new place.",
-    category: "Hackathon",
-    status: "AI companion concept",
-    featured: true,
-    tone: "jarvis",
-    oneLiner:
-      "A conversational assistant concept for international students navigating everyday life in Australia.",
-    role: "Product planning & UX/UI",
-    tech: ["Product design", "Conversational UX", "AI concept"],
-    contributionSummary: [
-      "Shaped the product concept and user experience.",
-      "Contributed interface design for an international-student use case.",
+    featured: false,
+    meta: "Hackathon · product concept",
+    caseMeta: "Hackathon · product concept",
+    oneLiner: "A voice assistant concept for international students finding their feet in Australia.",
+    summary: "A voice assistant concept for international students. I scoped the use cases and designed the interaction for the team’s prototype.",
+    role: "Product planning and UX/UI",
+    listRole: "Product planning & UX · hackathon",
+    tech: ["Requirements", "Conversational UX"],
+    thumb: shot("/projects/jarvis.webp", "", "", 1600, 941),
+    panel: { kind: "wide", tone: "#0B1520" },
+    gallery: [shot("/projects/jarvis.webp", "Hey Jarvis prototype: a circular voice indicator with text input below", "The team’s prototype: voice status with a text option.", 1600, 941)],
+    links: [
+      { label: "Team’s LinkedIn post", href: "https://www.linkedin.com/posts/kris-hsu_hackathon-artificialintelligence-conversationalai-ugcPost-7449073004086587392-cyLr/" },
     ],
-    gallery: [
-      screen(
-        "/projects/jarvis.webp",
-        "Hey Jarvis team prototype interface with voice status and text-input controls",
-        "The team’s companion interface brings voice status and a text-input option together.",
-        "Team prototype",
-        1600,
-        941,
-      ),
-    ],
-    evidence: [
-      {
-        label: "View project walkthrough",
-        type: "Project post · LinkedIn",
-        href: "https://www.linkedin.com/posts/kris-hsu_hackathon-artificialintelligence-conversationalai-ugcPost-7449073004086587392-cyLr/",
-      },
-    ],
-    overview: [
-      "Hey Jarvis is a hackathon concept for a conversational companion that helps international students navigate life in Australia. Its proposed use cases bring together everyday guidance, schedule management and opportunities to connect with other people.",
-      "My contribution was product planning and UX/UI design. This is a product and interaction case, alongside my development projects: it shows how I think about a user’s situation and translate it into an experience a team can discuss and prototype. My scope was the product and user experience, within a team hackathon project.",
+    brief: [
+      "A hackathon concept: one conversational entry point for the everyday questions international students have — getting around, managing a schedule, meeting people.",
     ],
     contributions: [
-      {
-        title: "Frame the product around a person’s situation",
-        text: "I contributed product planning for the international-student use case. The concept connects several everyday needs through one conversational entry point, giving the team a common product direction for the hackathon.",
-      },
-      {
-        title: "Design the interaction and interface",
-        text: "I contributed UX/UI design. The prototype gives the team a concrete way to communicate the intended experience. My focus was the user journey and interface, including how a student understands the companion’s current state.",
-      },
+      { title: "Scoped the product.", text: "Framed the use cases around an international student’s situation, which gave the team a shared direction." },
+      { title: "Designed the interaction.", text: "The user journey and interface, including how a student can tell what the assistant is doing." },
     ],
     decisions: [
-      {
-        title: "Make the conversational state visible",
-        text: "The shared prototype displays listening and input states around a central voice interface. These signals matter in a conversational product because the person needs to understand whether the assistant is ready, listening or waiting for another action.",
-      },
-      {
-        title: "Keep a text entry point visible",
-        text: "Alongside the voice controls, the supplied screen contains a text-input field. That gives the concept another interaction path. The next step would be to test when students prefer speaking or typing and whether the state changes are understandable.",
-      },
+      { title: "Show the assistant’s state.", text: "Listening, ready and waiting are visible around the voice indicator, so nobody talks to a microphone that isn’t on." },
+      { title: "Keep a text box.", text: "Speaking out loud isn’t always an option, so typing stays one tap away." },
     ],
-    outcome:
-      "The result is a team hackathon concept with a prototype interface and a public project walkthrough. It brings the international-student use case into a conversational format that can be explored and discussed.",
-    limitations:
-      "This remains a hackathon concept. Further work would validate the proposed use cases with international students and evaluate the clarity of the interaction, the quality of responses and the practicality of the integrations.",
-    takeaway:
-      "Product thinking complements engineering: define the situation, make the interaction understandable and be precise about what a prototype has demonstrated.",
+    outcome: [
+      "A team prototype and a public walkthrough. The next step would be testing the use cases with international students.",
+    ],
   },
   {
-    slug: "ThaimeUp",
-    title: "ThaimeUp",
-    subtitle: "From menu to order.",
-    category: "Academic",
-    status: "Coursework web application",
+    slug: "mcp-exploration",
+    title: "MCP file tools",
     featured: false,
-    tone: "thai",
-    oneLiner:
-      "A full-stack restaurant ordering system with customer ordering and administrator menu management.",
-    role: "Full-stack development",
-    tech: ["Python / Flask", "MySQL", "Bootstrap"],
-    gallery: [
-      screen(
-        "/projects/thaimeup.webp",
-        "ThaimeUp restaurant ordering application",
-        "The coursework application presents a restaurant-owned ordering experience.",
-        "Application screenshot",
-        1600,
-        874,
-      ),
+    meta: "Personal · exploration",
+    caseMeta: "Personal exploration",
+    oneLiner: "Custom MCP tools in Node.js that let Claude Desktop search and read local files.",
+    summary: "Custom MCP tools in Node.js that let Claude Desktop search and read local files.",
+    role: "Development and system design",
+    listRole: "Development · personal",
+    tech: ["Node.js", "MCP"],
+    thumb: shot("/projects/mcp.webp", "", "", 1600, 1696),
+    panel: { kind: "wide", tone: "#ECEAE4" },
+    gallery: [shot("/projects/mcp.webp", "Claude Desktop listing the files it can access through the custom tools", "Claude Desktop using the custom file tools.", 1600, 1696)],
+    links: [
+      { label: "Project notes", href: "https://www.linkedin.com/posts/kris-hsu_mcp-buildclub-aiagents-activity-7404535037032976384-GzKi/" },
     ],
-    evidence: [
-      {
-        label: "Explore source code",
-        type: "Repository · GitHub",
-        href: "https://github.com/ruby23719111/thaimeup",
-      },
-    ],
-    overview: [
-      "ThaimeUp is a university coursework application that simulates an ordering system for a Thai restaurant. It connects customer-facing menu browsing and ordering with administration of restaurant content.",
-    ],
-    contributions: [
-      {
-        title: "Build across the application",
-        text: "My role was full-stack development using Python, Flask, MySQL and Bootstrap. The documented application includes menu and category browsing, basket management, authenticated ordering and administrator management.",
-      },
-    ],
+    brief: ["An experiment in giving a chat app real tools: custom Model Context Protocol servers that search for and read files."],
+    contributions: [{ title: "Built the tools.", text: "File search and retrieval tools in Node.js, connected to Claude Desktop over MCP." }],
     decisions: [
       {
-        title: "Separate customer and administration workflows",
-        text: "The repository describes customer ordering alongside admin-only management of items, categories and orders. It also documents soft deletion to preserve order history, an important distinction from simply removing past records.",
+        title: "Draw the boundary clearly.",
+        text: "The model asks, the tool does the work, and the app decides what’s allowed. File search is a small enough job to see that boundary clearly.",
       },
     ],
-    outcome:
-      "A public repository provides the application structure, setup instructions and documented functionality. This gives a technical reviewer a route from the interface into the implementation.",
-    limitations:
-      "This is a simulated coursework system. The repository identifies further interface and responsiveness improvements; commercial deployment and operational evaluation would be separate next steps.",
-    takeaway:
-      "A useful ordering flow depends on the relationship between the interface, application rules and stored data.",
+    outcome: ["Before extending it I’d tighten the tool permissions, define explicit failure responses and test against a wider range of requests."],
   },
   {
     slug: "safemind",
     title: "SafeMind",
-    subtitle: "A clearer way to report an incident.",
-    category: "Hackathon",
-    status: "Incident-reporting prototype",
     featured: false,
-    tone: "safe",
-    oneLiner:
-      "A GenAI-assisted workplace incident-reporting concept with a guided reporting interface.",
-    role: "UX & front-end development",
-    tech: ["Next.js", "React", "GenAI"],
-    gallery: [
-      screen(
-        "/projects/safemind.webp",
-        "SafeMind workplace incident-reporting prototype",
-        "The prototype explores a guided approach to workplace incident reporting.",
-        "Prototype screenshot",
-        1600,
-        849,
-      ),
-    ],
-    evidence: [
-      {
-        label: "Watch walkthrough",
-        type: "Video · YouTube",
-        href: "https://youtu.be/t3-JGh9h8hE",
-      },
-    ],
-    overview: [
-      "SafeMind explores how a guided interface can help someone describe a workplace incident. The hackathon prototype uses a GenAI-supported reporting concept to organise a process that can otherwise feel difficult to start.",
-    ],
-    contributions: [
-      {
-        title: "UX and front-end contribution",
-        text: "My role covered UX and front-end development. The project stack includes Next.js, React and JavaScript. I focused on the reporting experience within the wider team prototype.",
-      },
-    ],
+    meta: "Hackathon · 2025",
+    caseMeta: "Hackathon · 2025",
+    oneLiner: "Injured workers capture evidence by voice and photo; GenAI turns it into a structured workplace-injury report.",
+    summary: "Injured workers capture evidence by voice and photo; GenAI turns it into a structured workplace-injury report.",
+    role: "UX and front-end development",
+    listRole: "UX & front end · hackathon",
+    tech: ["Next.js", "React"],
+    thumb: shot("/projects/safemind.webp", "", "", 1600, 849),
+    thumbPosition: "70% 50%",
+    panel: { kind: "wide", tone: "#E7ECEF" },
+    gallery: [shot("/projects/safemind.webp", "SafeMind welcome screen with options to report an incident", "The reporting prototype.", 1600, 849)],
+    links: [{ label: "Walkthrough video", href: "https://youtu.be/t3-JGh9h8hE" }],
+    brief: ["Reporting a workplace injury is stressful and easy to put off. SafeMind guides the person through it and turns what they say and photograph into a structured form."],
+    contributions: [{ title: "Designed and built the reporting flow.", text: "UX and front end in Next.js and React, within the team’s prototype." }],
     decisions: [
-      {
-        title: "Focus the interface on the reporting task",
-        text: "The case centres on the person providing an account of an incident and the interface that supports that task. The recorded walkthrough provides a closer view of the prototype than a technology list alone.",
-      },
+      { title: "Focus on the person reporting.", text: "The interface is about getting their account down clearly and letting them review it before anything is submitted." },
     ],
-    outcome:
-      "The available interface image and video document the hackathon prototype. They provide a concrete starting point for discussing the user flow and my front-end role.",
-    limitations:
-      "Further validation would need to examine task completion and the accuracy of the information captured. The prototype has not yet established an improvement in reporting speed or data quality.",
-    takeaway:
-      "For a guided reporting product, clarity and the ability to review information matter as much as the AI feature.",
-  },
-  {
-    slug: "mcp-exploration",
-    title: "Building Tool-Enabled LLMs with MCP",
-    subtitle: "Giving a conversation useful tools.",
-    category: "Personal",
-    status: "MCP exploration",
-    featured: false,
-    tone: "mcp",
-    oneLiner:
-      "Custom MCP tools exploring file search and retrieval from Claude Desktop.",
-    role: "Development & system design",
-    tech: ["MCP", "Node.js", "Tool integration"],
-    gallery: [
-      screen(
-        "/projects/mcp.webp",
-        "MCP exploration project screenshot",
-        "An original image from the tool-enabled LLM exploration.",
-        "Project screenshot",
-        1600,
-        1696,
-      ),
-    ],
-    evidence: [
-      {
-        label: "Read project notes",
-        type: "Project post · LinkedIn",
-        href: "https://www.linkedin.com/posts/kris-hsu_mcp-buildclub-aiagents-activity-7404535037032976384-GzKi/",
-      },
-    ],
-    overview: [
-      "This personal exploration investigated how a conversational application can use external tools. The project focused on custom MCP tools that let Claude Desktop search for and retrieve files beyond a standard chat interaction.",
-    ],
-    contributions: [
-      {
-        title: "Explore the tool boundary",
-        text: "My role covered development and system design, using MCP and Node.js. The contribution was connecting a conversational client to file-search and retrieval capabilities through custom tools.",
-      },
-    ],
-    decisions: [
-      {
-        title: "Make the capability concrete",
-        text: "File search and retrieval provide a bounded example of a tool-enabled workflow: the client requests an operation, a tool performs it, and information returns to the conversation. The public project notes provide further context.",
-      },
-    ],
-    outcome:
-      "The exploration connected Claude Desktop with a bounded file-search and retrieval capability. The project notes capture the experiment and provide additional context on the integration.",
-    limitations:
-      "This is a personal exploration. Before extending it, I would review the tool permissions, define explicit failure responses and test the integration against a wider range of file requests.",
-    takeaway:
-      "Tool integration is about a clear boundary between what the model requests and what the surrounding application permits.",
+    outcome: ["A working hackathon prototype with a recorded walkthrough. Next would be testing task completion and checking how accurate the generated reports are."],
   },
   {
     slug: "vcinity",
     title: "VCINITY",
-    subtitle: "Finding your place on campus.",
-    category: "Academic",
-    status: "UX prototype",
     featured: false,
-    tone: "vcinity",
-    oneLiner:
-      "A student-community concept exploring onboarding, discovery and campus engagement.",
-    role: "UX & interaction design",
-    tech: ["Figma", "User flows", "Prototyping"],
-    gallery: [
-      screen(
-        "/projects/vcinity.webp",
-        "VCINITY student community interface prototype",
-        "A view of the student-community prototype and its visual design.",
-        "UX prototype",
-        1600,
-        851,
-      ),
-    ],
-    evidence: [
+    meta: "QUT coursework · 2025",
+    caseMeta: "QUT coursework · 2025",
+    oneLiner: "A student community app concept that brings career, wellbeing, social and academic support into one place.",
+    summary: "User flows and a clickable prototype for helping new students find campus communities.",
+    role: "UX and interaction design",
+    listRole: "UX & interaction design",
+    tech: ["Figma", "User flows"],
+    thumb: shot("/projects/vcinity.webp", "", "", 1600, 851),
+    panel: { kind: "wide", tone: "#111111" },
+    gallery: [shot("/projects/vcinity.webp", "VCINITY prototype home screen with community categories", "The prototype’s home screen.", 1600, 851)],
+    links: [
       {
-        label: "Explore interactive prototype",
-        type: "Prototype · Figma",
+        label: "Figma prototype",
         href: "https://www.figma.com/proto/hws7cRIrB4JcINTl1v33he/IFN637_A3_Prototype_ChiaChi-Hsu_n12286443?node-id=6007-406&starting-point-node-id=6007%3A406",
       },
     ],
-    overview: [
-      "VCINITY is an academic UX prototype exploring how students can discover communities and campus opportunities. Its focus is the experience of finding relevant information and understanding how to take part.",
-    ],
-    contributions: [
-      {
-        title: "Design the user journey",
-        text: "My role was UX and interaction design. The work used Figma, user flows and prototyping to explore onboarding and engagement experiences. The linked prototype is the primary interactive artefact.",
-      },
-    ],
-    decisions: [
-      {
-        title: "Make discovery part of onboarding",
-        text: "The design connects getting started with discovering communities. A prototype makes it possible to discuss that sequence and the relationship between screens before treating the idea as a deployed application.",
-      },
-    ],
-    outcome:
-      "A Figma prototype and original project image document the design work. Visitors can review the concept here and follow the prototype link for more interaction detail.",
-    limitations:
-      "This is a UX prototype. The next step would be to test the onboarding and discovery tasks with students before progressing to implementation.",
-    takeaway:
-      "An interactive prototype makes a proposed user journey concrete enough to discuss, evaluate and improve.",
+    brief: ["New students have to piece together clubs, careers, wellbeing and study support from different places. VCINITY explores putting them in one app."],
+    contributions: [{ title: "Designed the journey.", text: "User flows and a clickable Figma prototype covering onboarding and community discovery." }],
+    decisions: [{ title: "Make discovery part of onboarding.", text: "New students see communities that fit them while they set up, instead of hunting for them later." }],
+    outcome: ["Usability feedback on the prototype was positive. The next step would be building it."],
   },
   {
     slug: "portfolio",
-    title: "Personal Portfolio Website",
-    subtitle: "Making the work easier to understand.",
-    category: "Personal",
-    status: "Portfolio website",
+    title: "This portfolio",
     featured: false,
-    tone: "portfolio",
-    oneLiner:
-      "A Next.js portfolio built around clear contributions, real screenshots and shareable project cases.",
-    role: "Content, UX/UI & front-end development",
-    tech: ["Next.js", "React", "Responsive CSS"],
+    meta: "Personal · 2026",
+    caseMeta: "Personal · 2026",
+    oneLiner: "Next.js site with a page per project, deployed on Vercel.",
+    summary: "Next.js site with a page per project, deployed on Vercel.",
+    role: "Design and front-end development",
+    listRole: "Design & front end · personal",
+    tech: ["Next.js", "React", "CSS"],
+    thumb: shot("/projects/portfolio/home.webp", "", "", 1600, 1000),
+    panel: { kind: "wide", tone: "#E9E7E1" },
     gallery: [
-      screen("/projects/portfolio/home.webp", "Redesigned portfolio homepage with graduate positioning and selected work", "The homepage introduces my background and brings the selected work into view.", "Current website", 1280, 900),
-      screen("/projects/portfolio/experience.webp", "Experience section separating the development internship and industry capstone", "Experience cards distinguish professional, academic and community contributions.", "Current website", 1280, 900),
-      screen("/projects/portfolio/mobile.webp", "The portfolio introduction and navigation on a mobile screen", "The same reading path adapts to a single-column mobile layout.", "Current mobile website", 375, 812),
-      screen(
-        "/projects/portfolio.webp",
-        "Previous version of Kris Hsu’s portfolio",
-        "The previous portfolio, retained as a reference for the redesign.",
-        "Previous website",
-        1600,
-        874,
-      ),
+      shot("/projects/portfolio/home.webp", "This site’s homepage on a desktop screen", "Desktop.", 1600, 1000),
+      shot("/projects/portfolio/mobile.webp", "This site’s homepage on a phone", "Phone.", 780, 1688),
     ],
-    evidence: [
-      {
-        label: "Explore source code",
-        type: "Repository · GitHub",
-        href: "https://github.com/ruby23719111/kris-portfolio",
-      },
-    ],
-    overview: [
-      "This website presents eight projects through a consistent reading path: understand the problem, see the product and identify my contribution. It is designed for people evaluating graduate and junior software-development candidates.",
-    ],
+    links: [{ label: "Code on GitHub", href: "https://github.com/ruby23719111/kris-portfolio" }],
+    brief: ["A portfolio written for the people who hire graduates: a recruiter scanning for 30 seconds, and a hiring manager who wants to see how I work."],
     contributions: [
-      {
-        title: "Connect the content and implementation",
-        text: "The redesign uses a shared project-data source, individual case routes and reusable screenshot galleries. It is implemented with AI-assisted development; the engineering work includes reviewing the generated changes and checking the resulting experience.",
-      },
+      { title: "Content, design and front end.", text: "One data file drives the homepage and every case page, built with the Next.js App Router, next/font and next/image." },
     ],
     decisions: [
-      {
-        title: "Give evidence a clear reading order",
-        text: "All eight projects are visible on the homepage. Details expand in place, with independent case links for sharing. Screenshots are available before a visitor needs to leave the site. Videos, prototypes and source code have explicit links, while native links and keyboard controls support the reading path.",
-      },
+      { title: "Answer the recruiter’s questions first.", text: "Role, availability, work rights and location sit right under the introduction, and the résumé is one click away." },
+      { title: "Real evidence only.", text: "Real screenshots, a real demo video and links to code. No stock images or made-up numbers." },
     ],
-    outcome:
-      "The completed site presents all eight projects on one page, with independent case links, experience and a personal journey. Seven integration checks pass, and layout checks at five widths from 320 to 1440 pixels found no horizontal overflow. Mobile Lighthouse tests of the local production build scored 95–96 for Performance and 100 for Accessibility, Best Practices and SEO across the homepage, project list and Junior Ranger case. These are laboratory results, not real-user measurements.",
-    limitations:
-      "Recruiter comprehension and hiring outcomes have not been measured. Automated and browser checks can assess technical behaviour, but they do not replace a usability review with people unfamiliar with the projects.",
-    takeaway:
-      "The portfolio is part of the product experience: it should make the work easier to evaluate and its claims easier to verify.",
+    outcome: ["Static pages, fast on a phone, and every project has its own link to share."],
   },
 ];
 
 export const featuredProjects = projects.filter((project) => project.featured);
-export const getProject = (slug) =>
-  projects.find((project) => project.slug === slug);
+export const otherProjects = projects.filter((project) => !project.featured);
+export const getProject = (slug) => projects.find((project) => project.slug === slug);

@@ -71,3 +71,23 @@ The account owner confirmed public email `kriscchsu@gmail.com`. The Neil-reviewe
 Unconfirmed graduation month, availability, work rights, team sizes and metrics are omitted. Private student identifiers, emails and industry-contact details from the artefact agreement are not republished. The agreement/source ZIP are evidence for the content, not public downloads.
 
 Build, interaction, responsive-layout and performance results belong in `docs/verification.md`, with completed and pending checks separated. Deployment uses the existing GitHub repository and Vercel project; no new host or domain is introduced.
+
+## Update — 2026-10-23 redesign
+
+Kris reviewed the redesign and supplied or confirmed the following, which supersede the boundaries above where they differ:
+
+| Claim | Source |
+| --- | --- |
+| Junior Ranger listed under work as "Software Engineer Intern — Queensland Government, Department of Environment, Tourism, Science and Innovation, 2026 – present" | Kris's résumé (2310) and confirmation that the résumé describes Phase 2 |
+| No recognition-accuracy figure is published. The 40% → ~70% figures on an earlier résumé were model confidence scores mistaken for accuracy, and were removed from the site and the résumé on 2026-11-01. | Kris, in conversation |
+| Team of five, including Kris | Kris, in conversation |
+| Only Phase 2 is the headline result; the Phase 1 MVP stays as "Where it started" so it can be discussed in interviews | Kris, in conversation |
+| Junior Ranger code must not be published or linked | Kris, in conversation |
+| Architecture details (Flask API, photo validation/EXIF stripping, three Vertex AutoML models, 0.80 score / 0.10 margin thresholds, four decisions, Gemini TTS via Cloud Run, 30 mobile test files) | Release source `backend/README.md`, `backend/VERTEX_INTERFACE.md`, `backend/vertex_identification.py`, `mobile/tests/` |
+| Phase 1 = SwiftUI with general image labels matched to species names | Inferred from the release-source README (SwiftUI kept as earlier versions) and the legacy `/identify` route. **Kris to confirm.** |
+| "Why we changed it" reasons | Written from the code's design; **Kris to confirm they match the team's actual reasons.** |
+| Pixelz360 description | Kris's résumé |
+| Work rights: 485 visa, applying on graduation; available December 2026; open to relocating; English (fluent), Mandarin (native) | Kris, in conversation |
+| Legal coordinator role removed from Experience and de-emphasised in About | Kris's request |
+| Global Studies dates 2018–2020 | Kris's confirmation (résumé) |
+| Job-search email kriscchsu@gmail.com; phone number not published on the site | Kris, in conversation |
