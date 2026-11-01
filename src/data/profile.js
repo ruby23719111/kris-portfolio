@@ -1,199 +1,124 @@
-const linkedin = "https://www.linkedin.com/in/kris-hsu/";
+const linkedin = "https://www.linkedin.com/in/kris-hsu";
 
 export const intro = {
-  eyebrow: "Graduate & junior software development · Australia",
-  title: "Building useful web and mobile experiences.",
-  description:
-    "I’m Kris Hsu, a final-year Master of Information Technology student at QUT, seeking graduate and junior software development opportunities in Australia.",
-  internship:
-    "Currently gaining development experience as an AI App Developer intern at Pixelz360.",
+  title: "IT graduate who turns what clients need into working software.",
+  lead:
+    "I’m Kris Hsu. Full-stack web and mobile development, AI integration, and turning client feedback into requirements. I finish my Master of IT at QUT in December 2026 and I’m currently an AI App Developer intern at Pixelz360 in Brisbane.",
+  photo: {
+    src: "/community/qut-industry-night.webp",
+    alt: "Kris standing beside the ACS banner at QUT Tech Industry Night",
+    caption: "At the ACS booth, QUT Tech Industry Night",
+    width: 800,
+    height: 1067,
+  },
 };
 
-export const developmentExperience = [
+// Shown directly under the introduction for recruiters.
+export const glance = [
   {
-    id: "pixelz360",
-    role: "AI App Developer",
-    organisation: "Pixelz360",
-    period: "Jul 2026–present",
-    type: "Internship",
-    summary:
-      "A current development internship in Brisbane, alongside my Master of Information Technology at QUT.",
-    contributions: [],
-    href: linkedin,
+    label: "Looking for",
+    value: "Graduate and junior IT roles: software development, business analysis, IT consulting",
   },
+  { label: "Available", value: "Full-time from December 2026" },
   {
-    id: "junior-ranger-capstone",
-    role: "Team lead & developer",
-    organisation: "Junior Ranger · QUT industry project",
-    period: "2026",
-    type: "Industry-linked capstone",
-    summary:
-      "A two-semester team project supporting the Queensland Indigenous Land and Sea Ranger program, developed with an industry partner.",
-    contributions: [
-      "Contributed mobile, backend and model integration work.",
-      "Coordinated delivery and translated client feedback into team tasks.",
+    label: "Work rights",
+    value: "Temporary Graduate visa (subclass 485), applying on graduation. Full work rights, no sponsorship needed.",
+  },
+  { label: "Location", value: "Brisbane, and open to relocating anywhere in Australia" },
+];
+
+export const skills = [
+  { label: "Languages", value: "JavaScript, Python, SQL, HTML, CSS" },
+  { label: "Front end & mobile", value: "React, Next.js, React Native / Expo, Bootstrap, responsive CSS" },
+  { label: "Back end & data", value: "REST API design, FastAPI, Flask, Node.js, MySQL" },
+  { label: "AI integration", value: "GenAI integration, Vertex AI custom models, Gemini API, Google Vision API, MCP tools" },
+  {
+    label: "Business analysis",
+    value: "Requirements gathering, stakeholder engagement, process mapping, user journey mapping, prototyping in Figma",
+  },
+  { label: "Delivery", value: "Agile sprints, Jira, Git / GitHub, AWS, Vercel, Microsoft 365" },
+  { label: "Spoken languages", value: "English (fluent), Mandarin (native)" },
+];
+
+export const experience = [
+  {
+    group: "Work",
+    items: [
+      {
+        id: "pixelz360",
+        period: "Jul 2026 – now",
+        role: "AI App Developer intern",
+        organisation: "Pixelz360, Brisbane",
+        summary:
+          "Building and prototyping internal software with AI-assisted tools, and turning business needs into clear, buildable specifications.",
+        photo: {
+          src: "/community/pixelz360-team.webp",
+          alt: "Kris with the Pixelz360 team in Brisbane",
+          caption: "With the Pixelz360 team",
+          width: 1400,
+          height: 1050,
+        },
+      },
+      {
+        id: "qld-government",
+        period: "2026 – now",
+        role: "Software Engineer Intern",
+        organisation: "Queensland Government — Department of Environment, Tourism, Science and Innovation",
+        summary:
+          "Led a team of five building Junior Ranger, a wildlife-recognition app for Indigenous Junior Rangers. Ran client meetings to gather requirements.",
+        href: "/projects/junior-ranger",
+      },
     ],
-    href: "/projects/junior-ranger",
   },
-];
-
-export const communityExperience = [
   {
-    id: "acs-qld",
-    role: "Emerging Professionals Committee Member",
-    organisation: "ACS Queensland",
-    period: "Jan 2026–present",
-    type: "Professional community",
-    summary:
-      "Supporting initiatives that connect emerging technology professionals with the wider industry.",
-    contributions: [
-      "Contribute to university engagement, knowledge sharing and community initiatives.",
+    group: "Community",
+    items: [
+      { id: "acs-qld", period: "Jan 2026 – now", role: "Emerging Professionals Committee", organisation: "ACS Queensland" },
+      { id: "qut-mentor", period: "Jul 2026 – now", role: "Student mentor", organisation: "Women in Science, QUT" },
+      { id: "code-network", period: "Oct 2025 – Jul 2026", role: "Graphic designer", organisation: "QUT Code Network" },
+      { id: "mentee", period: "Ongoing", role: "Mentee", organisation: "AWS mentorship and Cisco MentorMe" },
     ],
-    href: "https://www.linkedin.com/feed/update/urn:li:activity:7434039803320446976/",
   },
   {
-    id: "qut-mentor",
-    role: "Student Mentor",
-    organisation: "Women in Science · QUT",
-    period: "Jul 2026–present",
-    type: "Student mentoring",
-    summary:
-      "Supporting other students through a mentoring role, while continuing to learn from my own mentors.",
-    contributions: [],
-    href: linkedin,
-  },
-  {
-    id: "code-network",
-    role: "Graphic Designer",
-    organisation: "Code Network",
-    period: "Oct 2025–Jul 2026",
-    type: "Student community",
-    summary:
-      "Contributed design work within QUT’s technology student community.",
-    contributions: [],
-    href: linkedin,
+    group: "Education",
+    items: [
+      { id: "qut", period: "2025 – Dec 2026", role: "Master of Information Technology", detail: "Queensland University of Technology" },
+      {
+        id: "global-studies",
+        period: "2018 – 2020",
+        role: "Tricontinental Master in Global Studies",
+        detail: "Karlsruhe University of Applied Sciences, Germany — with a study period at Universidad de Monterrey, Mexico (2019)",
+      },
+      { id: "nchu", period: "2014 – 2018", role: "Bachelor of Laws", detail: "National Chung Hsing University, Taiwan" },
+    ],
   },
 ];
 
-export const mentorshipExperience = [
-  {
-    id: "aws-mentee",
-    role: "Mentee",
-    organisation: "AWS mentorship",
-    type: "Professional development",
-    summary: "Learning from industry guidance as a mentee.",
-    href: linkedin,
-  },
-  {
-    id: "cisco-mentee",
-    role: "Mentee",
-    organisation: "Cisco MentorMe",
-    type: "Professional development",
-    summary: "Participating as a mentee in the Cisco MentorMe programme.",
-    href: linkedin,
-  },
-];
-
-export const journey = {
-  eyebrow: "The experiences behind the work",
-  title: "From understanding contracts to building software.",
+export const about = {
+  title: "About me",
   paragraphs: [
-    "My interest in IT began while I was working as a legal coordinator at a high-tech company in Taiwan. To include technical details in contracts, I worked across departments with engineers and needed to understand the products they were building. Those conversations were my first real introduction to the technical side of a product, and the point at which I began to take an interest in IT.",
-    "Studying and living in Germany and Mexico was another important part of my journey. These were my first experiences of building a life outside Taiwan. Learning to navigate two very different cultural environments strengthened my ability to adapt: finding my footing, understanding unfamiliar expectations and continuing to learn along the way.",
-    "Today, I’m completing a Master of Information Technology at QUT and gaining practical development experience through projects and an internship. I bring that combination of legal study, international experience and technical learning to the way I approach problems and work with other people.",
+    "I got into IT while working at a tech company in Taiwan, where conversations with engineers made me curious about how products are built. I’m now finishing my Master of IT at QUT and interning at Pixelz360 in Brisbane.",
+    "Studying in Germany and Mexico taught me to settle into unfamiliar places quickly and work well with people who see things differently.",
   ],
+  route: ["Taichung 2014", "Karlsruhe 2018", "Monterrey 2019", "Brisbane 2025"],
 };
 
-export const education = [
-  {
-    institution: "Queensland University of Technology",
-    qualification: "Master of Information Technology",
-    period: "2025–2026",
-    detail: "Australia · Final year",
-  },
-  {
-    institution: "Karlsruhe University of Applied Sciences",
-    qualification: "Tricontinental Master in Global Studies",
-    period: "2018–2021",
-    detail: "Germany · Global Studies programme",
-  },
-  {
-    institution: "Universidad de Monterrey (UDEM)",
-    qualification: "Global Studies study experience",
-    period: "2019",
-    detail: "Mexico · A study period within my international education",
-  },
-  {
-    institution: "National Chung Hsing University",
-    qualification: "Bachelor of Laws",
-    period: "2014–2018",
-    detail: "Taiwan",
-  },
-];
-
-// Actual photos selected and inspected from Kris’s authorised LinkedIn posts.
+// Photos from Kris’s own LinkedIn posts, used with his permission.
 export const communityPhotos = [
   {
     src: "/community/acs-tech-awards.webp",
-    alt: "Kris at the ACS Queensland Tech Awards",
-    caption:
-      "ACS Queensland Tech Awards — EPC member and event volunteer.",
-    sourceHref:
-      "https://www.linkedin.com/feed/update/urn:li:activity:7511220916115394560/",
-    sourceLabel: "Kris’s LinkedIn post",
+    alt: "Kris with two others at the ACS Queensland Tech Awards",
+    caption: "Volunteering at the ACS Queensland Tech Awards",
+    sourceHref: "https://www.linkedin.com/feed/update/urn:li:activity:7511220916115394560/",
     width: 800,
     height: 1200,
   },
   {
-    src: "/community/qut-industry-night.webp",
-    alt: "Kris taking part in QUT Tech Industry Night",
-    caption:
-      "QUT Tech Industry Night — ACS industry booth representative.",
-    sourceHref:
-      "https://www.linkedin.com/feed/update/urn:li:activity:7494355022365741056/",
-    sourceLabel: "Kris’s LinkedIn post",
-    width: 800,
-    height: 1067,
-  },
-  {
     src: "/community/qut-mentoring.webp",
-    alt: "Kris with QUT career mentor Craig Richards",
-    caption:
-      "With my QUT career mentor, Craig Richards — learning as a mentee.",
-    sourceHref:
-      "https://www.linkedin.com/feed/update/urn:li:activity:7501253806005956608/",
-    sourceLabel: "Kris’s LinkedIn post",
+    alt: "Kris with his QUT career mentor Craig Richards",
+    caption: "With my QUT career mentor, Craig Richards",
+    sourceHref: "https://www.linkedin.com/feed/update/urn:li:activity:7501253806005956608/",
     width: 800,
     height: 1155,
   },
 ];
-
-// Internal provenance; components do not present this as another page section.
-export const profileEvidence = {
-  reviewedOn: "2026-10-23",
-  sources: [
-    {
-      source: "Kris’s LinkedIn profile, experience and education sections",
-      href: linkedin,
-      confirms:
-        "Role titles, institutions, listed periods, QUT study, committee and mentoring participation.",
-    },
-    {
-      source: "Kris’s explicit account in this conversation",
-      confirms:
-        "Legal coordinator role in Taiwan, technical contract work with engineers, first interest in IT, and the significance of living and studying in Germany and Mexico.",
-    },
-    {
-      source: "Supplied IFN736 Phase 2 artefact agreement and release source",
-      confirms:
-        "Junior Ranger is an industry-linked university capstone. The supplied artefacts corroborate the final implementation; they do not establish government employment.",
-    },
-  ],
-  pending: [
-    "Neil-reviewed résumé PDF has not been supplied; retain Request résumé.",
-    "Legal employer and employment dates have not been supplied.",
-    "The Karlsruhe/UDEM programme relationship has not been fully verified; UDEM is a study experience, not a separately claimed MBA.",
-    "Do not infer an employment relationship from the Junior Ranger industry partnership.",
-    "Pixelz360 project responsibilities and client outcomes are not yet described in verified public material.",
-  ],
-};
