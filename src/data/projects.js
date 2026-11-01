@@ -34,14 +34,15 @@ export const projects = [
     ],
     links: [
       { label: "Case study", href: "/projects/junior-ranger", primary: true },
-      { label: "4-min demo", href: "/projects/junior-ranger#demo" },
+      { label: "5-min demo", href: "/projects/junior-ranger#demo" },
     ],
     video: {
       src: "/videos/junior-ranger-final.mp4",
       poster: "/projects/junior-ranger/final-home.webp",
       title: "Junior Ranger final demo",
-      duration: "4 min",
-      caption: "Missions, photo review, recognition, quizzes, games and rewards. A recorded walkthrough, not a field test.",
+      duration: "5 min 36 s",
+      caption:
+        "The full walkthrough: the onboarding tour, two missions from photo to result (an Australian White Ibis and a Bush Stone-curlew), narrated facts and quizzes, all three games, the Ranger Journey ranks and dressing up the avatar. A recorded walkthrough, not a field test.",
     },
     brief: [
       "The client was the Queensland Government’s Indigenous Land and Sea Ranger program. The question was how First Nations children could learn about the wildlife around them — not from a textbook, but by going outside, finding it and photographing it.",
