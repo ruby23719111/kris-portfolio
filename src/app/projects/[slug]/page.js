@@ -83,7 +83,7 @@ function Gallery({ project }) {
 function Architecture({ architecture }) {
   return (
     <Section id="architecture" title="How it fits together" wide>
-      <div className="arch" role="img" aria-label="Mobile app sends photos to the Flask backend API, which calls three Vertex AI AutoML models and Gemini text-to-speech">
+      <div className="arch" role="img" aria-label="React Native / Expo app connects to a Python / Flask backend, with Vertex AI wildlife recognition and Gemini narration">
         {architecture.steps.map((step) => (
           <div key={step.title} className={`arch-box${step.highlight ? " is-highlight" : ""}`}>
             <strong>{step.title}</strong>
