@@ -15,7 +15,7 @@ export const projects = [
     facts: [{ label: "Project", value: "Two phases, team of five, for the Queensland Indigenous Land and Sea Ranger program." }],
     highlights: [
       "Built the Flask API between the Expo app, custom Vertex AI models and Gemini narration.",
-      "Worked on three custom Vertex AI models covering the 18 species the missions use.",
+      "Trained four custom wildlife recognition models using Google Cloud’s Vertex AI.",
       "Led the team: sprints in Jira, client feedback turned into tasks.",
     ],
     panel: { kind: "phones", tone: "#EEE0A8" },
@@ -51,42 +51,42 @@ export const projects = [
     contributions: [
       {
         title: "Connected the app to the models.",
-        text: "The Expo app talks to a Flask backend, which calls our own Vertex AI models. I worked on the labelled datasets and the custom models, and wired the prediction check into the mission flow.",
+        text: "I prepared labelled datasets and trained four custom wildlife recognition models using Google Cloud’s Vertex AI. I also built the Flask API connecting wildlife recognition to the app’s missions.",
       },
       {
-        title: "Added narration and a shared UI kit.",
-        text: "Gemini reads the learning content aloud, so it isn’t only text on a screen. I also built shared interface components and the avatar assets.",
+        title: "Designed the interface and added narration.",
+        text: "I designed the app’s overall look and layout, built shared UI components and created customisable avatars inspired by the Junior Ranger program. I integrated Gemini narration so children could listen to learning content as well as read it.",
       },
       {
-        title: "Ran the team.",
-        text: "Sprints in Jira and GitHub, regular client meetings to gather requirements, and explaining technical trade-offs in plain language to non-technical stakeholders.",
+        title: "Coordinated the project as team lead.",
+        text: "I organised tasks in Jira, tracked priorities and turned client feedback into next steps. Regular client meetings gave me experience explaining technical choices in plain language.",
       },
     ],
     architecture: {
       steps: [
         { title: "Mobile app", tech: "React Native / Expo" },
-        { title: "Backend API", tech: "Python / Flask, Docker", note: "Validates, resizes and strips EXIF from photos", highlight: true },
+        { title: "Backend API", tech: "Python / Flask", highlight: true },
       ],
       services: [
-        { title: "Vertex AI AutoML", note: "three custom models: birds, animals, plants" },
-        { title: "Gemini TTS", note: "narration, cached, on Cloud Run" },
+        { title: "Vertex AI", note: "custom wildlife recognition" },
+        { title: "Gemini", note: "voice narration" },
       ],
-      text: "The app never talks to Google Cloud directly. Every photo goes through the Flask API, so credentials stay on the server and photos aren’t stored. Each model only chooses between the six species its missions use, plus “other”, and the API answers with one of four decisions: match, different species, uncertain or other.",
+      text: "I connected the React Native / Expo app to a Python / Flask backend, integrating custom wildlife recognition models on Google Cloud’s Vertex AI and Gemini-powered narration. This brought photo recognition, mission progress and audio learning into one connected experience.",
     },
     decisions: [
       {
-        title: "A prediction isn’t a pass.",
-        text: "A photo only counts if the top result is the mission’s species, scores at least 0.80 and leads the runner-up by 10 points. Otherwise the child hears “not sure, try again” instead of a wrong answer.",
+        title: "Handling uncertain results.",
+        text: "I added a retry flow for uncertain recognition results, giving children a clear next step when a photo could not be confidently identified.",
       },
       {
         title: "Taking a photo and sending it are two steps.",
-        text: "Kids review the picture first and can retake it. Progress, retry and narration states are always visible, because recognition and audio both wait on the network.",
+        text: "Children can review their picture and retake it before submitting. Clear progress and audio controls help them follow each step of the mission.",
       },
     ],
     outcome: [
       "We delivered a working app with the front end, backend, models and narration connected end to end.",
-      "It’s covered by 30 automated test files on the app side and unit tests on the backend, with the cloud calls mocked.",
-      "What it hasn’t had yet is a proper accuracy test. A model’s confidence score isn’t the same as how often it’s right, so the next step is to measure accuracy on a held-out set of real photos taken by kids, then calibrate the 0.80 and 10-point thresholds against it.",
+      "Automated frontend and backend tests supported the integrated app.",
+      "Further evaluation with photos taken in real learning settings would help assess recognition performance beyond model evaluation.",
     ],
     phases: {
       intro: "Phase 1, the semester before, ended with an MVP: a quest, a mission list and a photo step, tested on an iPhone. For Phase 2 we rebuilt almost all of it.",
@@ -94,23 +94,22 @@ export const projects = [
       walkthrough: "https://youtube.com/shorts/4QIalMF5-Is",
       rows: [
         ["App", "SwiftUI, iPhone only", "React Native / Expo, one codebase for iPhone and Android"],
-        ["Recognition", "General image labels matched to species names", "Three custom Vertex AI models trained on the 18 mission species"],
-        ["Pass rule", "Name match", "Right species, score ≥ 0.80, 10-point lead; otherwise “try again”"],
+        ["Recognition", "General image recognition", "Custom wildlife recognition using Vertex AI"],
         ["Learning", "Quest, missions, photo", "Plus facts, quizzes, games, avatar rewards and Gemini narration"],
         ["Design", "First pass", "Redesigned from scratch with a shared UI kit"],
       ],
       why: [
         {
           title: "General labels weren’t specific enough.",
-          text: "A general model can tell you it’s a bird, not which bird. Training our own models on just the species the missions ask for, plus “other”, gave the model a much narrower question to answer.",
+          text: "The missions needed species-level recognition. Custom Vertex AI models let us focus the recognition experience on the project’s wildlife learning goals.",
         },
         {
           title: "One codebase, more devices.",
           text: "Moving from SwiftUI to React Native meant the same app could run on the iPhones and Android phones kids actually have.",
         },
         {
-          title: "Keep the cloud behind the backend.",
-          text: "In an app for children, photos and Google credentials shouldn’t live on the phone, so everything now goes through the Flask API.",
+          title: "Connect recognition and learning.",
+          text: "The Flask backend brought wildlife recognition and Gemini narration together to support the app’s mission experience.",
         },
       ],
       myPart: [
